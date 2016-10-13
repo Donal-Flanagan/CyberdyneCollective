@@ -1,0 +1,64 @@
+     Student name: Dónal Flanagan 06665268
+
+     CS102 - Worksheet #1 - Data Representation.
+     -------------------------------------------
+     To be handed in by Wednesday 10th February 1999.
+     Fill in the answers in the boxes. 
+     YOU MUST APPEND HAND WRITTEN PAGES WHICH SHOW ALL YOUR CALCULATION
+
+     (1)  Convert the following binary numbers to decimal:
+                 1000           101100          1111101         10100011    
+        ---------------------------------------------------------------------
+        |          8     |         44     |            125 |      163       |
+        ---------------------------------------------------------------------
+
+     (2)  Convert the following decimal numbers to binary:
+                   15               37              126              158    
+        ---------------------------------------------------------------------
+        |    00001111    |     00100101   |      01111110  |   10011110     |
+        ---------------------------------------------------------------------
+
+     (3)  Convert the decimal values 75 and 26 to binary.
+        -----------------------------------
+        |    01001011    |   00011010     | 
+        -----------------------------------
+
+          Using 2's-complement form, show how the decimal values 
+          -4 and -123 are represented.
+        -----------------------------------
+        |                |                | 
+        -----------------------------------
+
+          Use addition of 2's-complement to evaluate the following
+          Write down the result in the appropriate representation
+          i.e. either binary or 2's-complement
+
+           75 - 4 ,         26 - 123 
+        -----------------------------------
+        |                |                | 
+        -----------------------------------
+
+     (4)  Convert the following binary fractions to decimal:
+          .00001 ,     .11111101
+        -----------------------------------
+        | .03125         |   .98828125    | 
+        -----------------------------------
+
+     (5)  Convert the following decimal fractions to binary:
+           .5625  ,      .59375 
+        -----------------------------------
+        |    .1001       |  .10011        | 
+        -----------------------------------
+
+     (6)  Show how the following floating point numbers
+          could be stored in memory as ANSI single precision reals:
+
+           8.5625 
+        ---------------------------------------------------------
+        | 01000001000010100000000000000000                      | 
+        ---------------------------------------------------------
+
+           231.34375 
+        ---------------------------------------------------------
+        |     01000011011001111101000000000000                  | 
+        ---------------------------------------------------------

@@ -1,0 +1,22 @@
+Student name: Donal Flanagan
+
+CS102 - Worksheet #3 - The CS1 Machine.
+---------------------------------------
+To be handed in by Friday 31st March 2006.
+
+YOU SHOULD HAND THIS QUESTION SHEET UP ALONG WITH YOUR PROGRAM
+
+
+
+Q.1 Write a CS1 machine code programme which evaluates the function
+
+             f(x) = 1*x^4 + 2*x^2 - 15
+
+    for the first 100 integers, and stores the results in a block of
+    memory defined by the user.
+    Your programme should be clearly commented.
+
+
+
+If you wish you may test your CS1 machine code programme using
+the CS1.EXE simulator, as discussed in lectures.
