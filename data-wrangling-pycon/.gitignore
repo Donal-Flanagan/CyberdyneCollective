@@ -1,0 +1,6 @@
+*~
+*.pyc
+openbooks/*
+*.db
+.*
+!/.gitignore
