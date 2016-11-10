@@ -50,8 +50,6 @@ dependencies:
 - pango=1.39.0=1
 - path.py=8.2.1=py34_0
 - pathlib2=2.1.0=py34_0
-- pdfminer.six==20160614
-- pdftables.six==0.0.5
 - pexpect=4.0.1=py34_0
 - pickleshare=0.7.2=py34_0
 - pip=8.1.2=py34_0
