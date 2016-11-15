@@ -1,0 +1,1371 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Python Logic, Loops and Functions\n",
+    "\n",
+    "We will explore how to perform logic trees (if this, do that), loops (do this for every item) and functions (do this repeated code for me any time I type it's name)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "from __future__ import print_function"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Logic"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 3,
+=======
+   "execution_count": 2,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if 0:\n",
+    "    print(1 + 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 4,
+=======
+   "execution_count": 3,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "2\n"
+     ]
+    }
+   ],
+   "source": [
+    "if 1:\n",
+    "    print(1 + 1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 5,
+=======
+   "execution_count": 4,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "!!!\n"
+     ]
+    }
+   ],
+   "source": [
+    "if True:\n",
+    "    print('!!!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 6,
+=======
+   "execution_count": 5,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if False:\n",
+    "    print('???')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "if True and False:\n",
+    "    print('?!?')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 8,
+=======
+   "execution_count": 6,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "...\n"
+     ]
+    }
+   ],
+   "source": [
+    "if True or False:\n",
+    "    print('...')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 9,
+=======
+   "execution_count": 7,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "...\n"
+     ]
+    }
+   ],
+   "source": [
+    "if not False:\n",
+    "    print('...')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 11,
+=======
+   "execution_count": 8,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "if not True:\n",
+    "    print('???')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 12,
+=======
+   "execution_count": 9,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "thats better\n"
+     ]
+    }
+   ],
+   "source": [
+    "if False:\n",
+    "    print('what?')\n",
+    "else:\n",
+    "    print('thats better')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "yep!\n"
+     ]
+    }
+   ],
+   "source": [
+    "if False:\n",
+    "    pass\n",
+    "elif True:\n",
+    "    print('yep!')\n",
+    "else:\n",
+    "    print('down here!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "false!\n"
+     ]
+    }
+   ],
+   "source": [
+    "if 4 > 5:\n",
+    "    print('true!')\n",
+    "else:\n",
+    "    print('false!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "math!\n"
+     ]
+    }
+   ],
+   "source": [
+    "if 89 < 122:\n",
+    "    print('math!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 16,
+=======
+   "execution_count": 10,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "my_age = 33"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 17,
+=======
+   "execution_count": 11,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "thats ok\n"
+     ]
+    }
+   ],
+   "source": [
+    "if my_age < 22:\n",
+    "    print('too young!')\n",
+    "elif my_age > 30:\n",
+    "    print('thats ok')\n",
+    "elif my_age >= 100:\n",
+    "    print('too old!')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 20,
+=======
+   "execution_count": 12,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "true\n"
+     ]
+    }
+   ],
+   "source": [
+    "if True == 1:\n",
+    "    print('true')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 22,
+=======
+   "execution_count": 13,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "true\n"
+     ]
+    }
+   ],
+   "source": [
+    "if []:\n",
+    "    print('false')\n",
+    "    \n",
+    "if not []:\n",
+    "    print('true')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### For loops"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 23,
+=======
+   "execution_count": 14,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n"
+     ]
+    }
+   ],
+   "source": [
+    "for x in [1, 2, 3]:\n",
+    "    print(x)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 24,
+=======
+   "execution_count": 15,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "m\n",
+      "y\n",
+      "_\n",
+      "l\n",
+      "o\n",
+      "n\n",
+      "g\n",
+      "_\n",
+      "s\n",
+      "t\n",
+      "r\n",
+      "i\n",
+      "n\n",
+      "g\n"
+     ]
+    }
+   ],
+   "source": [
+    "for y in 'my_long_string':\n",
+    "    print(y)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 25,
+=======
+   "execution_count": 16,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "my_pets = ['ber', 'lil bunny', 'birdie']"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 26,
+=======
+   "execution_count": 17,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "I love my pet ber\n",
+      "I love my pet lil bunny\n",
+      "I love my pet birdie\n"
+     ]
+    }
+   ],
+   "source": [
+    "for pet in my_pets:\n",
+    "    print('I love my pet %s' % pet)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 27,
+=======
+   "execution_count": 18,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "my_integers = [3, 6, 7, 2, 8]"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 28,
+=======
+   "execution_count": 19,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "new_list = []"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 29,
+=======
+   "execution_count": 20,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [],
+   "source": [
+    "for integer in my_integers:\n",
+    "    new_list.append(integer + 2)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 30,
+=======
+   "execution_count": 21,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[3, 6, 7, 2, 8]"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 30,
+=======
+     "execution_count": 21,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_integers"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 31,
+=======
+   "execution_count": 22,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[5, 8, 9, 4, 10]"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 31,
+=======
+     "execution_count": 22,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "new_list"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 32,
+=======
+   "execution_count": 23,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "m\n",
+      "y\n",
+      " \n",
+      "n\n",
+      "a\n",
+      "m\n",
+      "e\n"
+     ]
+    }
+   ],
+   "source": [
+    "for letter in 'my name':\n",
+    "    print(letter)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 33,
+=======
+   "execution_count": 24,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "my_dict = {'foo': 1, 'bar': 2, 'baz': 3}"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 34,
+=======
+   "execution_count": 32,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+<<<<<<< HEAD
+       "dict_items([('foo', 1), ('baz', 3), ('bar', 2)])"
+      ]
+     },
+     "execution_count": 34,
+=======
+       "dict_items([('foo', 1), ('bar', 2), ('baz', 3)])"
+      ]
+     },
+     "execution_count": 32,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_dict.items()"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 35,
+=======
+   "execution_count": 27,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "3",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-35-6a2256ce9b77>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mmy_dict_key\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmy_dict_value\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mmy_dict\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mitems\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m     \u001b[0mmy_dict\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m+=\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mKeyError\u001b[0m: 3"
+     ]
+    }
+   ],
+   "source": [
+    "list1=[(1,'a'),(2,'b')]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 30,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1 a\n",
+      "2 b\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i,j in list1:\n",
+    "    print(i,j)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "KeyError",
+     "evalue": "3",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+      "\u001b[0;32m<ipython-input-33-6a2256ce9b77>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mmy_dict_key\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mmy_dict_value\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mmy_dict\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mitems\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m     \u001b[0mmy_dict\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m]\u001b[0m \u001b[0;34m+=\u001b[0m \u001b[0;36m1\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;31mKeyError\u001b[0m: 3"
+     ]
+    }
+   ],
+   "source": [
+    "for my_dict_key, my_dict_value in my_dict.items():\n",
+    "    my_dict[x] += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 36,
+=======
+   "execution_count": 34,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "3"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 36,
+=======
+     "execution_count": 34,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 37,
+=======
+   "execution_count": 38,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'bar': 2, 'baz': 3, 'foo': 1}"
+      ]
+     },
+     "execution_count": 37,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "l1=[1,2,3,4]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[4, 3]"
+      ]
+     },
+     "execution_count": 52,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "l1[3:1:-1]"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 46,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "{'bar': 2, 'baz': 3, 'foo': 1}"
+      ]
+     },
+     "execution_count": 46,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_dict"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 38,
+=======
+   "execution_count": 53,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "my_dict_with_lists = {'first_list': [1, 2, 3], 'second_list': [5, 6, 7]}"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 39,
+=======
+   "execution_count": 57,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_dict_with_lists.items?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 58,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "set1={1,2,3,5,3}"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 60,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "5\n"
+     ]
+    }
+   ],
+   "source": [
+    "for i in set1:\n",
+    "    print(i)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 61,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "1\n",
+      "2\n",
+      "3\n",
+      "5\n",
+      "6\n",
+      "7\n"
+     ]
+    }
+   ],
+   "source": [
+    "for key, value in my_dict_with_lists.items():\n",
+    "    for val in value:\n",
+    "        print(val)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 43,
+=======
+   "execution_count": 64,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "first_list [1, 2, 3]\n",
+      "second_list [5, 6, 7]\n"
+     ]
+    }
+   ],
+   "source": [
+    "for key, value in my_dict_with_lists.items():\n",
+    "    print(key,value)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 66,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def my_addition_function(x, y):\n",
+    "    \"\"\"This returns the sum of the two inputs.\"\"\"\n",
+    "    return x + y"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 44,
+=======
+   "execution_count": 67,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 44,
+=======
+     "execution_count": 67,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_addition_function(3, 4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 46,
+=======
+   "execution_count": 70,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'testfoo'"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 46,
+=======
+     "execution_count": 70,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_addition_function('test', 'foo')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 48,
+=======
+   "execution_count": 71,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "ename": "TypeError",
+     "evalue": "can only concatenate list (not \"str\") to list",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+<<<<<<< HEAD
+      "\u001b[0;32m<ipython-input-48-cc26f3e229c7>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mmy_addition_function\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m12\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m23\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'bar'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-43-f3645622b27d>\u001b[0m in \u001b[0;36mmy_addition_function\u001b[0;34m(x, y)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mmy_addition_function\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m     \u001b[0;34m\"\"\"This returns the sum of the two inputs.\"\"\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mx\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+=======
+      "\u001b[0;32m<ipython-input-71-cc26f3e229c7>\u001b[0m in \u001b[0;36m<module>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mmy_addition_function\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m12\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;36m23\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'bar'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+      "\u001b[0;32m<ipython-input-66-f3645622b27d>\u001b[0m in \u001b[0;36mmy_addition_function\u001b[0;34m(x, y)\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0;32mdef\u001b[0m \u001b[0mmy_addition_function\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mx\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      2\u001b[0m     \u001b[0;34m\"\"\"This returns the sum of the two inputs.\"\"\"\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 3\u001b[0;31m     \u001b[0;32mreturn\u001b[0m \u001b[0mx\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0my\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+      "\u001b[0;31mTypeError\u001b[0m: can only concatenate list (not \"str\") to list"
+     ]
+    }
+   ],
+   "source": [
+    "my_addition_function([12, 23], 'bar')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 59,
+=======
+   "execution_count": 72,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def say_hello(input_string):\n",
+    "    \"\"\"This will print hello to the input_string and return None\"\"\"\n",
+    "    print('hello {}!'.format(input_string))"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 60,
+=======
+   "execution_count": 73,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hello test!\n"
+     ]
+    }
+   ],
+   "source": [
+    "say_hello('test')"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 61,
+=======
+   "execution_count": 78,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hello test!\n"
+     ]
+    }
+   ],
+   "source": [
+    "'bla {}'.format?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 62,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "'bla {}'.format"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 63,
+=======
+   "execution_count": 75,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+<<<<<<< HEAD
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 63,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+=======
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "hello test!\n"
+     ]
+    }
+   ],
+   "source": [
+    "my_return = say_hello('test')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 76,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "source": [
+    "my_return"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 77,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "True"
+      ]
+     },
+     "execution_count": 77,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "my_return is None"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 64,
+=======
+   "execution_count": 79,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "def choose_math_with_kwargs(x, y, math_to_run='addition'):\n",
+    "    \"\"\" This will perform math based on the math_to_run keyword argument.\n",
+    "        params:\n",
+    "            x: unknown type\n",
+    "            y: unknown type\n",
+    "            kwargs:\n",
+    "                math_to_run: string (default: addition)\n",
+    "        returns math_to_run using x and y\n",
+    "    \"\"\"\n",
+    "    if math_to_run == 'addition':\n",
+    "        return x + y\n",
+    "    elif math_to_run == 'subtraction':\n",
+    "        return x - y"
+   ]
+  },
+  {
+   "cell_type": "code",
+<<<<<<< HEAD
+   "execution_count": 65,
+=======
+   "execution_count": 80,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "5"
+      ]
+     },
+<<<<<<< HEAD
+     "execution_count": 65,
+=======
+     "execution_count": 80,
+>>>>>>> 6630d7c99e7bc12a74729933f889541950416a62
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "choose_math_with_kwargs(2, 3)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 81,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "7"
+      ]
+     },
+     "execution_count": 81,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "choose_math_with_kwargs(3, 4, math_to_run='addition')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 83,
+   "metadata": {
+    "collapsed": false
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "-1"
+      ]
+     },
+     "execution_count": 83,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "choose_math_with_kwargs(3, 4, math_to_run='subtraction')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 82,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "choose_math_with_kwargs(3, 4, math_to_run='division')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "#### Your turn!\n",
+    "\n",
+    "* Implement the other basic math operators\n",
+    "* Add a default return\n",
+    "* BONUS: can you send an error message if people input anything other than integers?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "anaconda-cloud": {},
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.4.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
