@@ -256,7 +256,11 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
+<<<<<<< HEAD
+   "version": "3.4.5"
+=======
    "version": "3.5.2"
+>>>>>>> ae8190be1a64b98f298267e59cfdc70bfc30d03b
   }
  },
  "nbformat": 4,

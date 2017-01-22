@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {
     "collapsed": false
    },
@@ -12,7 +12,7 @@
     "import numpy as np\n",
     "\n",
     "# automatic plotting:\n",
-    "%pylab inline"
+    "# %pylab inline"
    ]
   },
   {
@@ -30,8 +30,6 @@
    },
    "outputs": [],
    "source": [
-    "# create series\n",
-    "s = pd.Series([1,2,3,3,np.nan])\n",
     "# create dataframe\n",
     "df = pd.DataFrame(np.random.randn(7,4), index=list('abcdefg'), columns=list('ABCD'))\n",
     "df"
