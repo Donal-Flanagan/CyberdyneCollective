@@ -8,7 +8,7 @@
    },
    "outputs": [],
    "source": [
-    "import pandas as pd"
+    "import requests"
    ]
   },
   {
@@ -19,7 +19,10 @@
    },
    "outputs": [],
    "source": [
-    "import pdftables"
+    "def get_story(story_id):\n",
+    "    url = 'https://hacker-news.firebaseio.com/v0/item/%d.json' % story_id\n",
+    "    resp = requests.get(url)\n",
+    "    return resp.json()"
    ]
   },
   {
@@ -30,7 +33,11 @@
    },
    "outputs": [],
    "source": [
-    "pdftables.get_tables?"
+    "def get_top_stories():\n",
+    "    url = 'https://hacker-news.firebaseio.com/v0/topstories.json'\n",
+    "    resp = requests.get(url)\n",
+    "    all_stories = [get_story(sid) for sid in resp.json()[:10]]\n",
+    "    return all_stories"
    ]
   },
   {
@@ -41,7 +48,8 @@
    },
    "outputs": [],
    "source": [
-    "pdftables.page_to_tables?"
+    "import urllib3.contrib.pyopenssl\n",
+    "urllib3.contrib.pyopenssl.inject_into_urllib3()"
    ]
   },
   {
@@ -52,7 +60,7 @@
    },
    "outputs": [],
    "source": [
-    "my_pdf = open('../../data/WEF_GlobalCompetitivenessReport_2014-15.pdf', 'rb')"
+    "top_stories = get_top_stories()"
    ]
   },
   {
@@ -63,7 +71,7 @@
    },
    "outputs": [],
    "source": [
-    "chart_page = pdftables.get_pdf_page(my_pdf, 29)"
+    "top_stories[:5]"
    ]
   },
   {
@@ -74,7 +82,16 @@
    },
    "outputs": [],
    "source": [
-    "chart_page"
+    "MATCHING = (\n",
+    "    ('Python', '(p|P)ython'),\n",
+    "    ('Ruby', '(r|R)uby'),\n",
+    "    ('JavaScript', 'js|(J|j)ava(s|S)cript'),\n",
+    "    ('NodeJS', 'node(\\.?)(?:\\js|JS)'),\n",
+    "    ('Java', '(j|J)ava[^(S|s)cript]'),\n",
+    "    ('Objective-C', 'Obj(ective?)(?:\\ |-)(C|c)'),\n",
+    "    ('Go', '(g|G)o'),\n",
+    "    ('C++',  '(c|C)(\\+)+')\n",
+    ")"
    ]
   },
   {
@@ -85,7 +102,7 @@
    },
    "outputs": [],
    "source": [
-    "table = pdftables.page_to_tables(chart_page)"
+    "import re"
    ]
   },
   {
@@ -96,7 +113,22 @@
    },
    "outputs": [],
    "source": [
-    "table"
+    "def count_languages():\n",
+    "    stories = get_top_stories()\n",
+    "    final_tallies = {}\n",
+    "    for s in stories:\n",
+    "        long_string = u'{} {}'.format(s.get('title'), s.get('url'))\n",
+    "        for language, regex in dict(MATCHING).items():\n",
+    "            if re.search(regex, long_string):\n",
+    "                if language not in final_tallies.keys():\n",
+    "                    final_tallies[language] = {\n",
+    "                        'score': s.get('score'),\n",
+    "                        'descendants': s.get('descendants')}\n",
+    "                else:\n",
+    "                    final_tallies[language]['score'] += s.get('score')\n",
+    "                    final_tallies[language][\n",
+    "                        'descendants'] += s.get('descendants')\n",
+    "    return final_tallies"
    ]
   },
   {
@@ -107,94 +139,16 @@
    },
    "outputs": [],
    "source": [
-    "table[0]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "titles = zip(table[0][0], table[0][1])[:5]"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "titles"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "titles = [''.join([title[0], title[1]]) for title in titles]\n",
-    "print(titles)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "all_rows = []\n",
-    "for row_data in table[0][2:]:\n",
-    "    all_rows.extend([row_data[:5], row_data[5:]])"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "all_rows"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "df = pd.DataFrame(all_rows, columns=titles)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "df.head()"
+    "count_languages()"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Your turn: Try with page 30, 31 or 32 "
+    "### Can you add the URL to this? What about a good Regex for matching Julia?\n",
+    "\n",
+    "Again, try it yourself first! :)"
    ]
   },
   {
@@ -205,29 +159,7 @@
    },
    "outputs": [],
    "source": [
-    "new_chart_page = pdftables.get_pdf_page(my_pdf, 30)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "table = pdftables.page_to_tables(new_chart_page)"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": null,
-   "metadata": {
-    "collapsed": false
-   },
-   "outputs": [],
-   "source": [
-    "table[0]"
+    "%load solutions/regex_solution.py"
    ]
   },
   {
@@ -256,7 +188,11 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
+<<<<<<< HEAD
+   "version": "3.4.5"
+=======
    "version": "3.5.2"
+>>>>>>> ae8190be1a64b98f298267e59cfdc70bfc30d03b
   }
  },
  "nbformat": 4,
