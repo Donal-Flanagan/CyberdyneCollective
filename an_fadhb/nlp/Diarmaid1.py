@@ -8,11 +8,6 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from collections import Counter
 
-<<<<<<< HEAD
-
-def create_lexicon(fileIn):
-=======
->>>>>>> 1dfc48d502651fd3d06369601359f1cbdf96d2f3
 
 def create_lexicon(fileIn):
     nltk.download("stopwords")
