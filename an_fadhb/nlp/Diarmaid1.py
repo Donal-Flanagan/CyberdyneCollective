@@ -1,7 +1,6 @@
 
 import nltk
 import numpy
-import pandas as pd
 from nltk import word_tokenize
 from nltk.tokenize import RegexpTokenizer
 from nltk.stem import WordNetLemmatizer
@@ -11,6 +10,7 @@ from collections import Counter
 
 def create_lexicon(fileIn):
     nltk.download("stopwords")
+    nltk.download("punkt")
     stop_words = set(stopwords.words("english"))
 
     lemmitizer = WordNetLemmatizer()
@@ -35,5 +35,4 @@ def create_lexicon(fileIn):
 
 if __name__ == "__main__":
     print("What I want to print")
-    nltk.download("stopwords")
     create_lexicon("script1.txt")
