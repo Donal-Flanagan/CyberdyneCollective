@@ -113,5 +113,5 @@ def create_all_key_words(fileIn):
 if __name__ == "__main__":
     number = eval(input("How many words do you want to get?"))
 
-    list = get_most_important_words("script.txt",5)
+    list = get_most_important_words("script.txt",number)
     print (list)
