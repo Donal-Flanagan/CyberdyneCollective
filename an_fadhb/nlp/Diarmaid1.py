@@ -1,3 +1,4 @@
+
 import nltk
 import numpy
 from nltk import word_tokenize
@@ -8,9 +9,11 @@ from nltk.corpus import stopwords
 from collections import Counter
 from operator import itemgetter
 
+nltk.download("pefunkt")
 nltk.download("stopwords")
+nltk.download("wordnet")
 
-def get_all_words_in_order(fileIn):
+def get_lemitized_words_in_order(fileIn):
     #We want to lemmatize words so that plurals etc. are counted as the same word
     lemmitizer = WordNetLemmatizer()
     # We are not interested in stop words
@@ -29,41 +32,73 @@ def get_all_words_in_order(fileIn):
     lexicon = [lemmitizer.lemmatize(i) for i in lexicon]
     return lexicon
 
+#Return the top n words in the database.   fileIn is the path to the file, and n is the number of words to get
 def get_most_important_words(fileIn,n):
     #Get all key words
-    key_words = get_all_words_in_order(fileIn)
-    key_words = key_words +create_all_key_words(key_words)
 
+    key_words = create_all_key_words(fileIn)
 
     newlist = sort_key_words(key_words)
 
-    return newlist[0:n]
+    return newlist.head(n)
 
-def sort_key_words(listIn):
-    w_counts = Counter(listIn)
-    l2 = []
+
+'''This is where you rank the words. Takes in a list of words, and returns a list of lists, witht he inner list holding the word and the value
+[
+ [word, value],
+ [word, value],
+ [word, value],
+    :       :
+    :       :
+ [word, value],
+ [word, value],
+ [word, value]
+]
+'''
+def assignValue(words):
+    w_counts = Counter(words)
+    word_and_value = []
     for w in w_counts:
         if (w.count(' ') == 0):
             mult = 1
         else:
             mult = w.count(' ') + 1
 
-        l2.append([w, w_counts[w] * mult])
+        word_and_value.append([w, w_counts[w] * mult])
+    return word_and_value
 
-    l3 = sorted(l2, key=itemgetter(1), reverse=True)
-
-    newlist = [x[:1][0] for x in l3]
+'''Sort the keyValue so that the best resuls are at the top.   Assumes input is a list of lists, with the inner list holding the word and the value
+[
+ [word, value],
+ [word, value],
+ [word, value],
+    :       :
+    :       :
+ [word, value],
+ [word, value],
+ [word, value]
+]
+'''
+def sort_key_words(listIn):
+    listIn.sort(key=itemgetter(1), reverse=True)
+    newlist = [x[:1][0] for x in listIn]
     return newlist
 
-#I assumed that key words would follow each other - didn't consider the scenario where key words had words between them
-def create_all_key_words(lexiconIn):
+'''This is where I create all of the key words.   I assume that keywords will appear in the text in order, 
+and the maximum length of the key words is 3. Stop words can appear between keywords.
+
+'''
+def create_all_key_words(fileIn):
     lexicon2 = []
-    for i in range(1,len(lexiconIn)-2):
-        doubleTest = lexiconIn[i]+" " +lexiconIn[i+1]
-        toTest = doubleTest +" " +lexiconIn[i+2]
-        for j in range(1,len(lexiconIn)-2):
-            testAgainstDouble = lexiconIn[j] +" "+ lexiconIn[j+1]
-            testAgainst = testAgainstDouble+" "+ lexiconIn[j+2]
+
+    key_words = get_lemitized_words_in_order(fileIn)
+
+    for i in range(1, len(key_words)-2):
+        doubleTest = key_words[i] + " " + key_words[i + 1]
+        toTest = doubleTest +" " + key_words[i + 2]
+        for j in range(1, len(key_words)-2):
+            testAgainstDouble = key_words[j] + " " + key_words[j + 1]
+            testAgainst = testAgainstDouble+" " + key_words[j + 2]
             if (toTest == testAgainst):
                 lexicon2.append(toTest)
             if (testAgainstDouble == doubleTest):
@@ -76,5 +111,7 @@ def create_all_key_words(lexiconIn):
 
 
 if __name__ == "__main__":
+    number = eval(input("How many words do you want to get?"))
+
     list = get_most_important_words("script.txt",5)
     print (list)
