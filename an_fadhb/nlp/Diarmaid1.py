@@ -43,7 +43,7 @@ def get_most_important_words(fileIn,n):
     return newlist.head(n)
 
 
-'''This is where you rank the words. Takes in a list of words, and returns a list of lists, witht he inner list holding the word and the value
+'''This is where you rank the words. Takes in a list of words, and returns a list of lists, with the inner list holding the word and the value
 [
  [word, value],
  [word, value],
@@ -84,7 +84,7 @@ def sort_key_words(listIn):
     newlist = [x[:1][0] for x in listIn]
     return newlist
 
-'''This is where I create all of the key words.   I assume that keywords will appear in the text in order, 
+'''This is where I create all of the key words.   I assume that keywords will appear in the text in order,
 and the maximum length of the key words is 3. Stop words can appear between keywords.
 
 '''
@@ -108,10 +108,11 @@ def create_all_key_words(fileIn):
 
 
 
-
-
-if __name__ == "__main__":
+def main():
     number = eval(input("How many words do you want to get?"))
 
-    list = get_most_important_words("script.txt",number)
+    list = get_most_important_words("script.txt", number)
     print (list)
+
+if __name__ == "__main__":
+    main()
