@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df94aeec-4c5c-46a0-8940-dbb7ca78cc4c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/an_fadhb/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/an_fadhb/meaning_interpreter/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/an_fadhb/test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/meaning_interpreter/meaning_interpreter/__init__.py" afterPath="$PROJECT_DIR$/an_fadhb/meaning_interpreter/meaning_interpreter/__init__.py" />
-    </list>
+    <list default="true" id="df94aeec-4c5c-46a0-8940-dbb7ca78cc4c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/an_fadhb/meaning_interpreter/meaning_interpreter/TextImporter.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="140">
-              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+              <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -445,7 +440,7 @@
     <entry file="file://$PROJECT_DIR$/an_fadhb/meaning_interpreter/meaning_interpreter/TextImporter.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
-          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
           <folding />
         </state>
       </provider>
