@@ -449,7 +449,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1961" y="52" width="1262" height="998" extended-state="4" />
+    <frame x="1961" y="52" width="1262" height="998" extended-state="5" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
