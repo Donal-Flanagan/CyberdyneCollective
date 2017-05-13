@@ -14,7 +14,7 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 
 
-def sort_key_words(listIn):
+def sort_key_words(list_in):
     """
     Sort the keyValue so that the best resuls are at the top.
     Assumes input is a list of lists, with the inner list holding the word and the value
@@ -28,13 +28,13 @@ def sort_key_words(listIn):
      [word, value],
      [word, value]
     ]
-    :param listIn:
+    :param list_in:
     :return:
     """
 
-    listIn.sort(key=itemgetter(1), reverse=True)
-    newlist = [x[:1][0] for x in listIn]
-    return newlist
+    list_in.sort(key=itemgetter(1), reverse=True)
+    new_list = [x[:1][0] for x in list_in]
+    return new_list
 
 
 def assign_value(words):
@@ -54,7 +54,7 @@ def assign_value(words):
     w_counts = Counter(words)
     word_and_value = []
     for w in w_counts:
-        if (w.count(' ') == 0):
+        if w.count(' ') == 0:
             mult = 1
         else:
             mult = w.count(' ') + 1
@@ -63,13 +63,13 @@ def assign_value(words):
     return word_and_value
 
 
-def get_lemitized_words_in_order(fileIn):
+def get_lemitized_words_in_order(file_in):
     # We want to lemmatize words so that plurals etc. are counted as the same word
     lemmitizer = WordNetLemmatizer()
     # We are not interested in stop words
     stop_words = set(stopwords.words("english"))
     lexicon=[]
-    with open(fileIn, 'r') as f:
+    with open(file_in, 'r') as f:
         contents = f.readlines()
         for l in contents[:]:
             all_words = word_tokenize(l)
@@ -95,30 +95,31 @@ def create_all_key_words(fileIn):
     key_words = get_lemitized_words_in_order(fileIn)
 
     for i in range(1, len(key_words)-2):
-        doubleTest = key_words[i] + " " + key_words[i + 1]
-        toTest = doubleTest + " " + key_words[i + 2]
+        double_test = key_words[i] + " " + key_words[i + 1]
+        to_test = double_test + " " + key_words[i + 2]
         for j in range(1, len(key_words)-2):
-            testAgainstDouble = key_words[j] + " " + key_words[j + 1]
-            testAgainst = testAgainstDouble+" " + key_words[j + 2]
-            if (toTest == testAgainst):
-                lexicon2.append(toTest)
-            if (testAgainstDouble == doubleTest):
-                lexicon2.append(doubleTest)
+            test_against_double = key_words[j] + " " + key_words[j + 1]
+            test_against = test_against_double+" " + key_words[j + 2]
+            if to_test == test_against:
+                lexicon2.append(to_test)
+            if test_against_double == double_test:
+                lexicon2.append(double_test)
 
     return lexicon2
 
 
-def get_most_important_words(fileIn, n):
+def get_most_important_words(file_in, n):
     """
     Return the top n words in the database.
-    fileIn is the path to the file, and n is the number of words to get
+    file_in is the path to the file, and n is the number of words to get
     """
     # Get all key words
-    key_words = create_all_key_words(fileIn)
+    key_words = create_all_key_words(file_in)
 
-    newlist = sort_key_words(key_words)
+    new_list = sort_key_words(key_words)
 
     return newlist[0:n]
+
 
 
 def main():
