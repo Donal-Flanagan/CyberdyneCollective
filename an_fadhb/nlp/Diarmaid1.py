@@ -83,16 +83,16 @@ def get_lemitized_words_in_order(file_in):
     return lexicon
 
 
-def create_all_key_words(fileIn):
+def create_all_key_words(file_in):
     """
     This is where I create all of the key words.   I assume that keywords will appear in the text in order,
     and the maximum length of the key words is 3. Stop words can appear between keywords.
-    :param fileIn:
+    :param file_in:
     :return:
     """
     lexicon2 = []
 
-    key_words = get_lemitized_words_in_order(fileIn)
+    key_words = get_lemitized_words_in_order(file_in)
 
     for i in range(1, len(key_words)-2):
         double_test = key_words[i] + " " + key_words[i + 1]
