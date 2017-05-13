@@ -95,17 +95,12 @@ def create_all_key_words(fileIn):
     key_words = get_lemitized_words_in_order(fileIn)
 
     for i in range(1, len(key_words)-2):
-        double_test = key_words[i] + " " + key_words[i + 1]
-        to_test = double_test + " " + key_words[i + 2]
-        for j in range(1, len(key_words)-2):
-            test_against_double = key_words[j] + " " + key_words[j + 1]
-            test_against = test_against_double+" " + key_words[j + 2]
-            if to_test == test_against:
-                lexicon2.append(to_test)
-            if test_against_double == double_test:
-                lexicon2.append(double_test)
+        double_keyword = key_words[i] + " " + key_words[i + 1]
+        triple_keyword = double_keyword + " " + key_words[i + 2]
+        key_words.append(double_keyword)
+        key_words.append(triple_keyword)
 
-    return lexicon2
+    return key_words
 
 
 def get_most_important_words(file_in, n):
@@ -116,10 +111,11 @@ def get_most_important_words(file_in, n):
     # Get all key words
     key_words = create_all_key_words(file_in)
 
-    new_list = sort_key_words(key_words)
+    words_and_values = assign_value(key_words)
 
-    return newlist[0:n]
+    new_list = sort_key_words(words_and_values)
 
+    return new_list[0:n]
 
 
 def main():
