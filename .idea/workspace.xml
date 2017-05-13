@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="df94aeec-4c5c-46a0-8940-dbb7ca78cc4c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/meaning_interpreter/requirements.txt" afterPath="$PROJECT_DIR$/an_fadhb/meaning_interpreter/requirements.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/nlp/diarmaids_nltk_stuff.ipynb" afterPath="$PROJECT_DIR$/an_fadhb/nlp/diarmaids_nltk_stuff.ipynb" />
-    </list>
+    <list default="true" id="df94aeec-4c5c-46a0-8940-dbb7ca78cc4c" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +48,8 @@
       <file leaf-file-name="Diarmaid1.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/an_fadhb/nlp/Diarmaid1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+            <state relative-caret-position="440">
+              <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
               <folding>
                 <element signature="e#1#12#0" expanded="true" />
               </folding>
@@ -552,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/an_fadhb/nlp/Diarmaid1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
+        <state relative-caret-position="440">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
           <folding>
             <element signature="e#1#12#0" expanded="true" />
           </folding>
