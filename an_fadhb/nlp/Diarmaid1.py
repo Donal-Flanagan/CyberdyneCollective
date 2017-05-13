@@ -6,7 +6,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
 from collections import Counter
 
-nltk.download("stopwords")
+
 def create_lexicon(fileIn):
 
     stop_words = set(stopwords.words("english"))
@@ -32,4 +32,5 @@ def create_lexicon(fileIn):
 
 if __name__ == "__main__":
     print("What I want to print")
-    create_lexicon("script.txt")
+    nltk.download("stopwords")
+    create_lexicon("script1.txt")
