@@ -118,13 +118,13 @@ def get_most_important_words(fileIn, n):
 
     newlist = sort_key_words(key_words)
 
-    return newlist.head(n)
+    return newlist[0:n]
 
 
 def main():
     number = eval(input("How many words do you want to get?"))
 
-    results = get_most_important_words("script.txt", number)
+    results = get_most_important_words("script1.txt", number)
 
     print (results)
 
