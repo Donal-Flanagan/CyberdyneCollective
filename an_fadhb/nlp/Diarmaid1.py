@@ -1,13 +1,16 @@
-#There was no definition of what important means, so I am assuming that important means repeated.
-#
 
 import nltk
 import numpy
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 from collections import Counter
 
+nltk.download("stopwords")
 def create_lexicon(fileIn):
+
+    stop_words = set(stopwords.words("english"))
+
     lemmitizer = WordNetLemmatizer()
     lexicon=[]
     with open(fileIn, 'r') as f:
@@ -18,5 +21,15 @@ def create_lexicon(fileIn):
     lexicon2 = [lemmitizer.lemmatize(i) for i in lexicon if i ]
     w = Counter(lexicon2)
     for w2 in w:
-        print(w[w2])
-    print(lexicon2)
+        l=1
+  #      print(w[w2])
+ #   print(lexicon2)
+
+
+
+
+
+
+if __name__ == "__main__":
+    print("What I want to print")
+    create_lexicon("script.txt")
