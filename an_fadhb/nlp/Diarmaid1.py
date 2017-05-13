@@ -14,37 +14,27 @@ nltk.download("stopwords")
 nltk.download("wordnet")
 
 
-def get_lemitized_words_in_order(fileIn):
-    # We want to lemmatize words so that plurals etc. are counted as the same word
-    lemmitizer = WordNetLemmatizer()
-    # We are not interested in stop words
-    stop_words = set(stopwords.words("english"))
-    lexicon=[]
-    with open(fileIn, 'r') as f:
-        contents = f.readlines()
-        for l in contents[:]:
-            all_words = word_tokenize(l)
-            for i in all_words:
-                if i.lower() not in stop_words:
-                    # We don't want numbers or punctuation
-                    if i.isalnum():
-                        lexicon.append(i.lower())
-
-    lexicon = [lemmitizer.lemmatize(i) for i in lexicon]
-    return lexicon
-
-
-def get_most_important_words(fileIn, n):
+def sort_key_words(listIn):
     """
-    Return the top n words in the database.
-    fileIn is the path to the file, and n is the number of words to get
+    Sort the keyValue so that the best resuls are at the top.
+    Assumes input is a list of lists, with the inner list holding the word and the value
+    [
+     [word, value],
+     [word, value],
+     [word, value],
+        :       :
+        :       :
+     [word, value],
+     [word, value],
+     [word, value]
+    ]
+    :param listIn:
+    :return:
     """
-    # Get all key words
-    key_words = create_all_key_words(fileIn)
 
-    newlist = sort_key_words(key_words)
-
-    return newlist.head(n)
+    listIn.sort(key=itemgetter(1), reverse=True)
+    newlist = [x[:1][0] for x in listIn]
+    return newlist
 
 
 def assign_value(words):
@@ -73,27 +63,24 @@ def assign_value(words):
     return word_and_value
 
 
-def sort_key_words(listIn):
-    """
-    Sort the keyValue so that the best resuls are at the top.
-    Assumes input is a list of lists, with the inner list holding the word and the value
-    [
-     [word, value],
-     [word, value],
-     [word, value],
-        :       :
-        :       :
-     [word, value],
-     [word, value],
-     [word, value]
-    ]
-    :param listIn:
-    :return:
-    """
+def get_lemitized_words_in_order(fileIn):
+    # We want to lemmatize words so that plurals etc. are counted as the same word
+    lemmitizer = WordNetLemmatizer()
+    # We are not interested in stop words
+    stop_words = set(stopwords.words("english"))
+    lexicon=[]
+    with open(fileIn, 'r') as f:
+        contents = f.readlines()
+        for l in contents[:]:
+            all_words = word_tokenize(l)
+            for i in all_words:
+                if i.lower() not in stop_words:
+                    # We don't want numbers or punctuation
+                    if i.isalnum():
+                        lexicon.append(i.lower())
 
-    listIn.sort(key=itemgetter(1), reverse=True)
-    newlist = [x[:1][0] for x in listIn]
-    return newlist
+    lexicon = [lemmitizer.lemmatize(i) for i in lexicon]
+    return lexicon
 
 
 def create_all_key_words(fileIn):
@@ -121,12 +108,25 @@ def create_all_key_words(fileIn):
     return lexicon2
 
 
+def get_most_important_words(fileIn, n):
+    """
+    Return the top n words in the database.
+    fileIn is the path to the file, and n is the number of words to get
+    """
+    # Get all key words
+    key_words = create_all_key_words(fileIn)
+
+    newlist = sort_key_words(key_words)
+
+    return newlist.head(n)
+
+
 def main():
     number = eval(input("How many words do you want to get?"))
 
-    list = get_most_important_words("script.txt", number)
+    results = get_most_important_words("script.txt", number)
 
-    print (list)
+    print (results)
 
 if __name__ == "__main__":
     main()
