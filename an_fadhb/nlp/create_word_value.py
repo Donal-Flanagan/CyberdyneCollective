@@ -1,6 +1,7 @@
 
 import nltk
 import numpy
+import pickle
 from nltk import word_tokenize
 import pandas as pd
 from nltk.tokenize import RegexpTokenizer
@@ -9,58 +10,30 @@ from nltk.corpus import stopwords
 from collections import Counter
 from operator import itemgetter
 
+
 nltk.download("punkt")
 nltk.download("stopwords")
 nltk.download("wordnet")
 
 
-def sort_key_words(list_in):
-    """
-    Sort the keyValue so that the best resuls are at the top.
-    Assumes input is a list of lists, with the inner list holding the word and the value
-    [
-     [word, value],
-     [word, value],
-     [word, value],
-        :       :
-        :       :
-     [word, value],
-     [word, value],
-     [word, value]
-    ]
-    :param list_in:
-    :return:
-    """
 
-    list_in.sort(key=itemgetter(1), reverse=True)
-    new_list = [x[:1][0] for x in list_in]
-    return new_list
 
 
 def assign_value(words):
     """
-    This is where you rank the words. Takes in a list of words, and returns a list of lists, with the inner list holding the word and the value
-    [
-     [word, value],
-     [word, value],
-     [word, value],
-        :       :
-        :       :
-     [word, value],
-     [word, value],
-     [word, value]
-    ]
+    This is where you rank the words. 
     """
+    d={}
     w_counts = Counter(words)
-    word_and_value = []
     for w in w_counts:
         if w.count(' ') == 0:
-            mult = 1
+            mult = 1.0
         else:
-            mult = w.count(' ') + 1
+            mult = w.count(' ') + 1.0
 
-        word_and_value.append([w, w_counts[w] * mult])
-    return word_and_value
+        d[w]=w_counts[w]*mult
+
+    return d
 
 
 def get_lemitized_words_in_order(file_in):
@@ -103,7 +76,7 @@ def create_all_key_words(file_in):
     return key_words
 
 
-def get_most_important_words(file_in, n):
+def create_words_and_values(file_in):
     """
     Return the top n words in the database.
     file_in is the path to the file, and n is the number of words to get
@@ -113,17 +86,27 @@ def get_most_important_words(file_in, n):
 
     words_and_values = assign_value(key_words)
 
-    new_list = sort_key_words(words_and_values)
-
-    return new_list[0:n]
+    return words_and_values
 
 
 def main():
-    number = eval(input("How many words do you want to get?"))
+    # number = eval(input("How many words do you want to get?"))
 
-    results = get_most_important_words("script1.txt", number)
+    #file_in = input("Please input the file to create the list from")
+    file_in = "script1.txt"
+    #save_file = input("Please input the save file name")
+    save_file = "test.pickle"
+    print("Calculating values from" , file_in, " and saving list to ", save_file)
 
-    print (results)
+    results = create_words_and_values(file_in)
+    print(results)
+    print(save_file)
+
+    pickle.dump(results, open(save_file, 'wb'))
+
+    test = pickle.load(open(save_file,'rb'))
+
+    print(test)
 
 if __name__ == "__main__":
     main()
