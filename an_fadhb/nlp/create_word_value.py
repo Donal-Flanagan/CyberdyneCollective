@@ -55,7 +55,6 @@ def get_lemitized_words_in_order(file_in):
     # We are not interested in stop words
 
     lexicon=[]
-    print(file_in)
     with open(file_in, 'r') as f:
         contents = f.readlines()
         for l in contents[:]:
@@ -74,7 +73,6 @@ def create_words_and_values(file_in):
     file_in is the path to the file, and n is the number of words to get
     """
     # Get all key words
-    print(file_in,"CR")
     words_in_order = get_lemitized_words_in_order(file_in)
 
     words_and_values = get_keywords_and_values(words_in_order)
@@ -84,7 +82,6 @@ def create_words_and_values(file_in):
 def save_words_and_values(file_in, save_file):
 
     results = create_words_and_values(file_in)
-    print(results)
 
     pickle.dump(results, open(save_file, 'wb'))
 
