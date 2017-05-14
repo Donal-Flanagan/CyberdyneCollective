@@ -92,10 +92,10 @@ def create_words_and_values(file_in):
 def main():
     # number = eval(input("How many words do you want to get?"))
 
-    #file_in = input("Please input the file to create the list from")
-    file_in = "script1.txt"
-    #save_file = input("Please input the save file name")
-    save_file = "test.pickle"
+    file_in = input("Please input the file to create the list from")
+    #file_in = "script1.txt"
+    save_file = input("Please input the save file name")
+    #save_file = "test.pickle"
     print("Calculating values from" , file_in, " and saving list to ", save_file)
 
     results = create_words_and_values(file_in)
@@ -103,10 +103,6 @@ def main():
     print(save_file)
 
     pickle.dump(results, open(save_file, 'wb'))
-
-    test = pickle.load(open(save_file,'rb'))
-
-    print(test)
 
 if __name__ == "__main__":
     main()
