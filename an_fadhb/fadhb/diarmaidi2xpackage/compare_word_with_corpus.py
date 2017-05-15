@@ -61,8 +61,8 @@ def compare_file_list(words_in, files_in):
         A list of files to be compared
         
     :return: list, dict 
-        a list of tuples, with each tuple holding the a word/value pair
-        a dictionary of the values for each file. the dictionary key is the filename (from the file passed in)
+        sorted_values: a list of tuples, with each tuple holding the a word/value pair
+        file_values: a dictionary of the values for each file. the dictionary key is the filename (from the file passed in)
     
 
     """
@@ -92,7 +92,6 @@ def get_sorted_key_words(file_in):
 
     sorted_words = list(map(itemgetter(0), sorted_x))
     return sorted_words
-
 
 def get_top_values(file_in, n):
     """
