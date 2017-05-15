@@ -6,21 +6,21 @@ from operator import itemgetter
 from diarmaidi2xpackage import create_words_and_values
 
 
-def get_all_txt_files_in_directory(directoryIn):
+def get_all_txt_files_in_directory(directory_in):
     """
     Get all of the files in the directory which end in .txt
 
-    :param directoryIn: str
+    :param directory_in: str
         Path to the directory to evaluate
     :return: list
         list of all files in the directory
     """
 
-    fileshan=[]
-    for root, dirs, files in os.walk(directoryIn):
-            for file in files:
-                if file.endswith(".txt"):
-                    l=os.path.join(root,file)
+    fileshan = []
+    for root, dirs, files in os.walk(directory_in):
+            for file_in in files:
+                if file_in.endswith(".txt"):
+                    l=os.path.join(root, file_in)
                     fileshan.append(l)
 
     return fileshan
@@ -95,7 +95,7 @@ def get_sorted_key_words(file_in):
 
     :return: list
 <<<<<<< HEAD
-        A list of the the sorted keywords 
+        A list of the the sorted keywords
 =======
         A list of the the sorted
 >>>>>>> fcea401072f8a056303d6e08873356742752c08b
@@ -106,6 +106,7 @@ def get_sorted_key_words(file_in):
     sorted_words = list(map(itemgetter(0), sorted_x))
     return sorted_words
 
+
 def get_top_values(file_in, n):
     """
     Get the top n vkey-words to use
@@ -113,7 +114,7 @@ def get_top_values(file_in, n):
         path of the file to read the keywords from
     :param n: integer
         number of keywords to get
-        
+
     :return: sorted_words: list
         A list of the top n key-words
     """
