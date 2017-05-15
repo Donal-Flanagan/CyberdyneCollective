@@ -51,13 +51,12 @@ def compare_file_list(words_in, files_in):
     :return: A tuple of word, value and the values for each file as a dict, dict key is the filename, and each entry is a sorted tuple of word, value
     """
     overall_value = Counter({})
-    file_values ={}
+    file_values = {}
 
-    for file in files_in:
-
-            values_out=compare_single_file(words_in,file)
-            overall_value=overall_value+values_out
-            file_values[file] =sorted(values_out.items(), key=itemgetter(1), reverse=True)
+    for file_in in files_in:
+        values_out = compare_single_file(words_in, file_in)
+        overall_value += values_out
+        file_values[file_in] = sorted(values_out.items(), key=itemgetter(1), reverse=True)
 
     for word in words_in:
         overall_value[word] = overall_value.get(word, 0.0)/len(files_in)
@@ -78,6 +77,7 @@ def get_sorted_key_words(file_in):
     sorted_words = list(map(itemgetter(0), sorted_x))
     return sorted_words
 
+
 def get_top_values(file_in, n):
     """
     Get the top n values
@@ -97,20 +97,21 @@ def evaluate_corpus(word_file_in, number_of_words_in, directory_in):
 
     files = get_all_txt_files_in_directory(directory_in)
 
-    val , file_val= compare_file_list(values, files)
+    val, file_val = compare_file_list(values, files)
     return val, file_val
+
 
 def get_overall_values_only(word_file_in, number_of_words_in, directory_in):
     val, file_val = evaluate_corpus(word_file_in, number_of_words_in, directory_in)
     return val
 
+
 def main():
-     file_in = input("Please input the file to load the dataset from")
+    file_in = input("Please input the file to load the dataset from")
+    number = eval(input("Please input the number of words to use"))
 
-     number = eval(input("Please input the number of words to use"))
-
-     directory_in = input("Please input the directory holding the corpus of information")
-     print(get_overall_values_only(file_in, number, directory_in))
+    directory_in = input("Please input the directory holding the corpus of information")
+    print(get_overall_values_only(file_in, number, directory_in))
 
 if __name__ == "__main__":
     main()
