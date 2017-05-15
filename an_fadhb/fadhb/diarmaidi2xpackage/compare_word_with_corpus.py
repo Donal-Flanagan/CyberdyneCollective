@@ -26,16 +26,16 @@ def get_all_txt_files_in_directory(directoryIn):
 
 def compare_single_file(words_in, file_in):
     """
-    Takes as input a list of words and compares it to all words in a file. Ranks each word as a percentage of total word
-values in the file.
+    Takes as input a list of words and compares it to all words in a file.
+    Ranks each word as a percentage of total word count in the file.
 
     :param words_in: list
-        A list of words in string format to be compared the words in file_in
+        A list of words in string format to be compared to the words in file_in
     :param file_in: str
         The file path for the text to be compared
     :return: collections.Counter()
-        key: words
-        value: counts (of occurrences of word in file_in)
+        key: str, word
+        value: int, count of occurrences of word in file_in)
     """
     results = create_words_and_values(file_in)
 
@@ -55,10 +55,10 @@ def compare_file_list(words_in, files_in):
         A list of words in string format to be compared to all of the files in files_in
     :param files_in: list
         A list of files to be compared
-        
-    :return: tuple, 
+
+    :return: tuple,
         A tuple of word, value and the values for each file as a dict, dict key is the filename, and each entry is a sorted tuple of word, value
-    
+
     """
     overall_value = Counter({})
     file_values = {}
