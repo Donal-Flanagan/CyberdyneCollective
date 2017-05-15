@@ -53,7 +53,6 @@ def compare_single_file(words_in, file_in):
 
 def compare_file_list(words_in, files_in):
     """
-
     Compare a list of words with the words in each file in files_in.
     Return a list of word values for each file and an overall value
 
@@ -69,7 +68,6 @@ def compare_file_list(words_in, files_in):
             key: file_name
             value: collections.Counter
                 Holds the calculated value for each word for each file
-
 
     """
     overall_value = Counter({})
@@ -94,11 +92,7 @@ def get_sorted_key_words(file_in):
         Path of the file to read the kew-words from
 
     :return: list
-<<<<<<< HEAD
         A list of the the sorted keywords
-=======
-        A list of the the sorted
->>>>>>> fcea401072f8a056303d6e08873356742752c08b
     """
     x = pickle.load(open(file_in, 'rb'))
     sorted_x = sorted(x.items(), key=itemgetter(1), reverse=True)

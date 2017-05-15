@@ -1,12 +1,8 @@
-import nltk
 import os
 import pickle
 from nltk import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
-
-
-
 
 
 def get_keywords_and_values(words):
