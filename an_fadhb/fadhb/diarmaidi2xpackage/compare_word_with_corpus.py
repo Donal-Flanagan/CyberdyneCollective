@@ -27,10 +27,13 @@ def get_all_txt_files_in_directory(directoryIn):
 def compare_single_file(words_in, file_in):
     """
 
-    :param words_in:
-    The words to compare
-    :param file_in: The file to compare
-    :return: A list of words and associated values for that file
+    :param words_in: list
+        A list of words in string format to be compared the words in file_in
+    :param file_in: str
+        The file path for the text to be compared
+    :return: collections.Counter()
+        key: words
+        value: counts (of occurrences in file_in)
     """
     results = create_words_and_values(file_in)
 
