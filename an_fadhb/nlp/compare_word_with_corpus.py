@@ -32,8 +32,8 @@ def compare_single_file(words_in, file_in):
 def compare_file_list(words_in, files_in):
     overall_value = Counter({})
 
-    for file in files_in:
-            overall_value=overall_value+compare_single_file(words_in,file)
+    for file_used in files_in:
+            overall_value=overall_value+compare_single_file(words_in,file_used)
 
     for word in words_in:
         overall_value[word] = overall_value.get(word, 0.0)/len(files_in)
