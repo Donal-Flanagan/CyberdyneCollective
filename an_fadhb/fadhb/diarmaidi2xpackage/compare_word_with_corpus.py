@@ -53,7 +53,7 @@ def compare_single_file(words_in, file_in):
 
 def compare_file_list(words_in, files_in):
     """
-    Compare a list of words with each of the files in, returning a value for each file and an overall value
+    Compare a list of words with each of the files in files_in, returning a key-word value for each file and an overall value
 
     :param words_in: list
         A list of words in string format to be compared to all of the files in files_in
@@ -92,7 +92,7 @@ def get_sorted_key_words(file_in):
         Path of the file to read the kew-words from
         
     :return: list
-        A list of the the sorted 
+        A list of the the sorted keywords 
     """
     x = pickle.load(open(file_in, 'rb'))
     sorted_x = sorted(x.items(), key=itemgetter(1), reverse=True)
@@ -102,10 +102,14 @@ def get_sorted_key_words(file_in):
 
 def get_top_values(file_in, n):
     """
-    Get the top n values
-    :param file_in: file to read values from
-    :param n: number of values to get
-    :return: a list of size n holding the top n words in the dataset
+    Get the top n vkey-words to use
+    :param file_in: str
+        path of the file to read the keywords from
+    :param n: integer
+        number of keywords to get
+        
+    :return: sorted_words: list
+        A list of the top n key-words
     """
 
     sorted_words = get_sorted_key_words(file_in)
