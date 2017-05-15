@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.py
+first_package_structure/__init__.py
+first_package_structure/compare_word_with_corpus.py
+first_package_structure/create_word_value.py
+first_package_structure.egg-info/PKG-INFO
+first_package_structure.egg-info/SOURCES.txt
+first_package_structure.egg-info/dependency_links.txt
+first_package_structure.egg-info/not-zip-safe
+first_package_structure.egg-info/requires.txt
+first_package_structure.egg-info/top_level.txt
