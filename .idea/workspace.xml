@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="df94aeec-4c5c-46a0-8940-dbb7ca78cc4c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/nlp/.ipynb_checkpoints/current_best-checkpoint.ipynb" afterPath="$PROJECT_DIR$/an_fadhb/nlp/.ipynb_checkpoints/current_best-checkpoint.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/nlp/.ipynb_checkpoints/diarmaids_nltk_stuff-checkpoint.ipynb" afterPath="$PROJECT_DIR$/an_fadhb/nlp/.ipynb_checkpoints/diarmaids_nltk_stuff-checkpoint.ipynb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/an_fadhb/nlp/current_best.ipynb" afterPath="$PROJECT_DIR$/an_fadhb/nlp/current_best.ipynb" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,14 +79,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compare_word_with_corpus.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compare_word_with_corpus.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/an_fadhb/package/first_package_structure/compare_word_with_corpus.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+            <state relative-caret-position="221">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="current_best.ipynb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/an_fadhb/nlp/current_best.ipynb">
+          <provider selected="true" editor-type-id="ipnb-editor">
+            <state>
+              <selected id="2" />
             </state>
           </provider>
         </entry>
@@ -127,10 +138,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1971" />
-    <option name="y" value="39" />
-    <option name="width" value="1549" />
-    <option name="height" value="1161" />
+    <option name="x" value="1631" />
+    <option name="y" value="18" />
+    <option name="width" value="1889" />
+    <option name="height" value="1182" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -480,10 +491,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1971" y="39" width="1549" height="1161" extended-state="4" />
+    <frame x="1631" y="18" width="1889" height="1182" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2118359" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1724138" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -707,11 +718,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/an_fadhb/package/first_package_structure/compare_word_with_corpus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="221">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/an_fadhb/nlp/current_best.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="2" />
         </state>
       </provider>
     </entry>
