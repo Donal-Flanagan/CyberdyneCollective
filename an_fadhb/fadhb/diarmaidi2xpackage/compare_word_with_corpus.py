@@ -8,10 +8,12 @@ from diarmaidi2xpackage import create_words_and_values
 
 def get_all_txt_files_in_directory(directoryIn):
     """
+    Get all of the files in the directory which end in .txt
 
-
-    :param directoryIn: The directory holding the corpus of information
-    :return: list of all files in directory
+    :param directoryIn: str
+        Path to the directory to evaluate
+    :return: list 
+        list of all files in the directory 
     """
 
     fileshan=[]
@@ -50,14 +52,15 @@ values in the file.
 
 def compare_file_list(words_in, files_in):
     """
+    Compare a list of words with each of the files in, returning a value for each file and an overall value
 
     :param words_in: list
         A list of words in string format to be compared to all of the files in files_in
     :param files_in: list
         A list of files to be compared
         
-    :return: tuple, 
-        A tuple of word, value and the values for each file as a dict, dict key is the filename, and each entry is a sorted tuple of word, value
+    :return: list, dict 
+        a list of tuples, with each tuple holding the 
     
     """
     overall_value = Counter({})
