@@ -61,9 +61,13 @@ def compare_file_list(words_in, files_in):
         A list of files to be compared
         
     :return: list, dict 
-        sorted_values: a list of tuples, with each tuple holding the a word/value pair
-        file_values: a dictionary of the values for each file. the dictionary key is the filename (from the file passed in)
-    
+        sorted_values: list
+            a list of tuples, with each tuple holding the word/value pair
+        file_values: dict
+            key: file_name
+            value: collections.Counter
+                Holds the calculated value for each word for each file
+           
 
     """
     overall_value = Counter({})
@@ -84,8 +88,11 @@ def compare_file_list(words_in, files_in):
 def get_sorted_key_words(file_in):
     """
     Simple subroutine to read in the data
-    :param file_in: file to read data from
-    :return: a list of sorted words
+    :param file_in: str
+        Path of the file to read the kew-words from
+        
+    :return: list
+        A list of the the sorted 
     """
     x = pickle.load(open(file_in, 'rb'))
     sorted_x = sorted(x.items(), key=itemgetter(1), reverse=True)
