@@ -25,7 +25,7 @@ class TestTus(unittest.TestCase):
         expected = ['one', 'two', 'three']
 
         self.write_file(words_in_order)
-        gotten = cwv.get_lemitized_words_in_order('testFile')
+        gotten = cwv.get_lemitized_words_in_order('testfile')
         self.remove_file()
 
         self.assertEquals(expected, gotten)
