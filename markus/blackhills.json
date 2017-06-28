@@ -1,145 +1,208 @@
 {
-    "name": "", 
+    "name": "",
     "children": [
         {
-            "name": "Recharge", 
+            "name": "oil",
             "children": [
                 {
-                    "name": "Precip", 
-                    "children": [
-                        {
-                            "name": "Crystalline 3600", 
-                            "size": 3600
-                        }, 
-                        {
-                            "name": "Deadwood 14500", 
-                            "size": 14500
-                        }, 
-                        {
-                            "name": "Madison/Minnelusa 144900", 
-                            "size": 144900
-                        }, 
-                        {
-                            "name": "Minnekahta 6500", 
-                            "size": 6500
-                        }, 
-                        {
-                            "name": "Inyan Kara 11600", 
-                            "size": 11600
-                        }, 
-                        {
-                            "name": "Jurassic 2200", 
-                            "size": 2200
-                        }, 
-                        {
-                            "name": "Dretaceous 2200", 
-                            "size": 2200
-                        }
-                    ]
-                }, 
+                    "name": "COB 15 kW 70",
+                    "size": 70
+                },
                 {
-                    "name": "StreamRecharge", 
-                    "children": [
-                        {
-                            "name": "Crystalline 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Deadwood 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Madison/Minnelusa 66600", 
-                            "size": 66600
-                        }, 
-                        {
-                            "name": "Minnekahta 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Inyan Kara 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Jurassic 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Cretaceous 0", 
-                            "size": 0
-                        }
-                    ]
-                }
-            ]
-        }, 
-        {
-            "name": "Discharge", 
-            "children": [
+                    "name": "COB 20 kW 23",
+                    "size": 23
+                },
                 {
-                    "name": "Well/Springflow", 
-                    "children": [
-                        {
-                            "name": "Crystalline 3600", 
-                            "size": 3600
-                        }, 
-                        {
-                            "name": "Deadwood 10100", 
-                            "size": 10100
-                        }, 
-                        {
-                            "name": "Madison/Minnelusa 169500", 
-                            "size": 169500
-                        }, 
-                        {
-                            "name": "Minnekahta 700", 
-                            "size": 700
-                        }, 
-                        {
-                            "name": "Inyan Kara 1400", 
-                            "size": 1400
-                        }, 
-                        {
-                            "name": "Jurassic 700", 
-                            "size": 700
-                        }, 
-                        {
-                            "name": "Cretaceous 1400", 
-                            "size": 1400
-                        }
-                    ]
-                }, 
+                    "name": "COB 29 kW 13",
+                    "size": 13
+                },
                 {
-                    "name": "Outflow", 
-                    "children": [
-                        {
-                            "name": "Crystalline 0", 
-                            "size": 0
-                        }, 
-                        {
-                            "name": "Deadwood 4400", 
-                            "size": 4400
-                        }, 
-                        {
-                            "name": "Madison/Minnelusa 41900", 
-                            "size": 41900
-                        }, 
-                        {
-                            "name": "Minnekahta 5800", 
-                            "size": 5800
-                        }, 
-                        {
-                            "name": "Inyan Kara 10200", 
-                            "size": 10200
-                        }, 
-                        {
-                            "name": "Jurassic 1500", 
-                            "size": 1500
-                        }, 
-                        {
-                            "name": "Cretaceous 800", 
-                            "size": 800
-                        }
-                    ]
+                    "name": "COB-15 15 kW 814",
+                    "size": 814
+                },
+                {
+                    "name": "COB-20 20 kW 463",
+                    "size": 463
+                },
+                {
+                    "name": "COB-29 29 kW 387",
+                    "size": 387
+                },
+                {
+                    "name": "COB-29 29 kW  50",
+                    "size": 50
+                },
+                {
+                    "name": "Logano Plus SB105-19 34",
+                    "size": 34
+                },
+                {
+                    "name": "Logano Plus SB105-27 17",
+                    "size": 17
+                },
+                {
+                    "name": "Logano plus GB 125 18 kW 1944",
+                    "size": 1944
+                },
+                {
+                    "name": "Logano plus GB 125 18 kW  148",
+                    "size": 148
+                },
+                {
+                    "name": "Logano plus GB 125 22 kW 1061",
+                    "size": 1061
+                },
+                {
+                    "name": "Logano plus GB 125 22 kW  34",
+                    "size": 34
+                },
+                {
+                    "name": "Logano plus GB 125 30 kW 650",
+                    "size": 650
+                },
+                {
+                    "name": "Logano plus GB 125 30 kW  40",
+                    "size": 40
+                },
+                {
+                    "name": "Logano plus GB 125 35 kW 262",
+                    "size": 262
+                },
+                {
+                    "name": "Logano plus GB 125 35 kW  26",
+                    "size": 26
+                },
+                {
+                    "name": "Logano plus GB145-15 1207",
+                    "size": 1207
+                },
+                {
+                    "name": "Logano plus KB195i 278",
+                    "size": 278
+                },
+                {
+                    "name": "Suprapur-O KUB 19-3 359",
+                    "size": 359
+                },
+                {
+                    "name": "Suprapur-O KUB 19-4 107",
+                    "size": 107
+                },
+                {
+                    "name": "Suprapur-O KUB 27-3 218",
+                    "size": 218
+                },
+                {
+                    "name": "Suprapur-O KUB 27-4 145",
+                    "size": 145
+                },
+                {
+                    "name": "SuprapurCompact-O KUB 18 2194",
+                    "size": 2194
+                },
+                {
+                    "name": "SuprapurCompact-O KUBC 18 3",
+                    "size": 3
+                },
+                {
+                    "name": "TOB-18 44",
+                    "size": 44
+                },
+                {
+                    "name": "TOB-18 18,6 kW 920",
+                    "size": 920
+                },
+                {
+                    "name": "Vitoladens 300-C 19,3 kW 39",
+                    "size": 39
+                },
+                {
+                    "name": "Vitoladens 300-C 23,5 kW 6",
+                    "size": 6
+                },
+                {
+                    "name": "Vitoladens 300-C 23,5 kW inkl 1 HK ohne Mischer - Vitocell 100-V 200 L, Typ CVA 4",
+                    "size": 4
+                },
+                {
+                    "name": "Vitoladens 300-C 28,5 kW 5",
+                    "size": 5
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA 159",
+                    "size": 159
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA 19,3 kW 751",
+                    "size": 751
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA 23,5 kW 242",
+                    "size": 242
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA 28,5 kW 253",
+                    "size": 253
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA004 19,3 kW 477",
+                    "size": 477
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA005 23,5 kW 115",
+                    "size": 115
+                },
+                {
+                    "name": "Vitoladens 300-C Typ J3RA006 28,5 kW 113",
+                    "size": 113
+                },
+                {
+                    "name": "Vitoladens 300-W 19 kW 10",
+                    "size": 10
+                },
+                {
+                    "name": "Vitoladens 300-W 23,5 kW 4",
+                    "size": 4
+                },
+                {
+                    "name": "Vitoladens 300-W Typ J3HA 17",
+                    "size": 17
+                },
+                {
+                    "name": "Vitoladens 300-W Typ J3HA 19,3 kW 118",
+                    "size": 118
+                },
+                {
+                    "name": "Vitoladens 300-W Typ J3HA 23,5 kW 27",
+                    "size": 27
+                },
+                {
+                    "name": "Vitoladens 300-W Typ J3HA001 19,3 kW 110",
+                    "size": 110
+                },
+                {
+                    "name": "Vitoladens 300-W Typ J3HA002 23,5 kW 18",
+                    "size": 18
+                },
+                {
+                    "name": "Vitoladens 333-F 19,3kW 311",
+                    "size": 311
+                },
+                {
+                    "name": "Vitoladens 333-F 23,5kW 48",
+                    "size": 48
+                },
+                {
+                    "name": "icoVIT exclusiv VKO 156/3-7 15,3 kW 422",
+                    "size": 422
+                },
+                {
+                    "name": "icoVIT exclusiv VKO 256/3-7 24,9 kW 219",
+                    "size": 219
+                },
+                {
+                    "name": "icoVIT exclusiv VKO 356/3-7 35,7 kW 136",
+                    "size": 136
                 }
             ]
         }
