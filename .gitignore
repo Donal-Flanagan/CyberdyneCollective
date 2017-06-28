@@ -2,4 +2,5 @@
 *.pyc
 *.db
 *.orig
+.idea/*
 !/.gitignore
