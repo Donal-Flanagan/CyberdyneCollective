@@ -49,8 +49,17 @@ class ML(object):
     def create_model(self):
         if self.method == 'classification':
             self.model = xgboost.XGBClassifier(**self.model_params)
+            return True
         elif self.method == 'regression':
             print('Not implemented yet')
+
+    def resample(self):
+        self.sampler = SMOTETomek(n_jobs=-1)
+        self.X, self.y = self.sampler.fit_sample(self.X, self.y)
+
+    def cross_val(self, scoring='accuracy', cv=4):
+        cross_vals = model_selection.cross_val_score(self.model, self.X, self.y, scoring=scoring, cv=cv, n_jobs=-1)
+        return numpy.mean(cross_vals), numpy.min(cross_vals), numpy.max(cross_vals)
 
     def train(self):
         pass
