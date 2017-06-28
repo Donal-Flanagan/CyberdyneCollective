@@ -2,756 +2,55 @@
     "name": "",
     "children": [
         {
-            "name": "liquid_gas",
-            "children": [
-                {
-                    "name": "CGB-2-14 107",
-                    "size": 107
-                },
-                {
-                    "name": "CGB-2-20 28",
-                    "size": 28
-                },
-                {
-                    "name": "CGB-2-24 16",
-                    "size": 16
-                },
-                {
-                    "name": "CGB-2K-24 2",
-                    "size": 2
-                },
-                {
-                    "name": "CGS-2-14/120L mit integriertem Schichtenspeicher 6",
-                    "size": 6
-                },
-                {
-                    "name": "CGS-2-14/150R mit integriertem Rohrwendelspeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "CGS-2-20/150R mit integriertem Rohrwendelspeicher 2",
-                    "size": 2
-                },
-                {
-                    "name": "CGS-2-20/160L mit integriertem Schichtenspeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "CGW-2-14 kW mit 46L Schichtenladespeicher 7",
-                    "size": 7
-                },
-                {
-                    "name": "CGW-2-14 mit integriertem Hochleistungsspeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "CGW-2-14/100L mit integriertem Hochleistungsspeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "CGW-2-20 mit 46L Schichtenladespeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "COB-15 15 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "COB-29 29 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Cerapur 9000i-20 20 kW wei\u00df 6",
-                    "size": 6
-                },
-                {
-                    "name": "Cerapur 9000i-20 20 kW wei\u00df GCWE09 2",
-                    "size": 2
-                },
-                {
-                    "name": "Cerapur 9000i-30 30kW schwarz GCWE16 2",
-                    "size": 2
-                },
-                {
-                    "name": "Cerapur 9000i-30 30kW wei\u00df 6",
-                    "size": 6
-                },
-                {
-                    "name": "Cerapur 9000i-30 30kW wei\u00df GCWE10 1",
-                    "size": 1
-                },
-                {
-                    "name": "Cerapur ZSB 14-4 174",
-                    "size": 174
-                },
-                {
-                    "name": "Cerapur ZSB 14-5 E-Gas 35",
-                    "size": 35
-                },
-                {
-                    "name": "Cerapur ZSB 14-5 E-Gas ZSB501 41",
-                    "size": 41
-                },
-                {
-                    "name": "Cerapur ZSB 14-5 LL-Gas 1",
-                    "size": 1
-                },
-                {
-                    "name": "Cerapur ZSB 24-4 68",
-                    "size": 68
-                },
-                {
-                    "name": "Cerapur ZSB 24-5 10",
-                    "size": 10
-                },
-                {
-                    "name": "Cerapur ZSB 24-5 ZSB503 12",
-                    "size": 12
-                },
-                {
-                    "name": "Cerapur ZWB  30-4 24,0 kW 9",
-                    "size": 9
-                },
-                {
-                    "name": "Cerapur ZWB 28-5 C 23 76",
-                    "size": 76
-                },
-                {
-                    "name": "Cerapur ZWB 30-4 24,0 kW 65",
-                    "size": 65
-                },
-                {
-                    "name": "Cerapur ZWB 30-4 24,0 kW E-Gas 7",
-                    "size": 7
-                },
-                {
-                    "name": "CerapurACU ZWSB 22/28-3 42L Fl\u00fcssiggas 10",
-                    "size": 10
-                },
-                {
-                    "name": "CerapurComfort-Eco ZSBE 28-3 4",
-                    "size": 4
-                },
-                {
-                    "name": "CerapurModul 9000i-20/100S schwarz 2",
-                    "size": 2
-                },
-                {
-                    "name": "CerapurModul Smart ZBS 22/75-3 E 13",
-                    "size": 13
-                },
-                {
-                    "name": "CerapurModul ZBS 14/100 S-3 MA E 35",
-                    "size": 35
-                },
-                {
-                    "name": "CerapurModul ZBS 22/100 S-3 MA E 12",
-                    "size": 12
-                },
-                {
-                    "name": "CerapurModul ZBS 30/150 S-3 MA 1",
-                    "size": 1
-                },
-                {
-                    "name": "CerapurModul ZWSB 22/28-3 Fl\u00fcssiggas 1",
-                    "size": 1
-                },
-                {
-                    "name": "Cerastar Comfort ZWR 18-7 2",
-                    "size": 2
-                },
-                {
-                    "name": "GB172-14 T120 mit integriertem Rohrwendelspeicher 8",
-                    "size": 8
-                },
-                {
-                    "name": "GB172-14-T150 mit integriertem Rohrwendelspeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "GB172-14-T150S mit integriertem Ladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "GB172-20 T100 S mit integriertem Ladespeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "GB172-20 T150 mit integriertem Rohrwendelspeicher 7",
-                    "size": 7
-                },
-                {
-                    "name": "GB172-24-T50 mit integriertem Ladepeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "GB172-24-T50 mit integriertem Rohrwendelspeicher 10",
-                    "size": 10
-                },
-                {
-                    "name": "Logamax Plus GB 162 35 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logamax Plus GB 172 14 kW 6",
-                    "size": 6
-                },
-                {
-                    "name": "Logamax Plus GB 172 20 kW 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logamax Plus GB 172 24 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax Plus GB 192-35i wei\u00df 22",
-                    "size": 22
-                },
-                {
-                    "name": "Logamax Plus GB 192i 35 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logamax plus GB172 24 K 14",
-                    "size": 14
-                },
-                {
-                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung E 13",
-                    "size": 13
-                },
-                {
-                    "name": "Logamax plus GB172-14 683",
-                    "size": 683
-                },
-                {
-                    "name": "Logamax plus GB172-20 304",
-                    "size": 304
-                },
-                {
-                    "name": "Logamax plus GB172-24 57",
-                    "size": 57
-                },
-                {
-                    "name": "Logamax plus GB192-15i 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logamax plus GB192-15i schwarz 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logamax plus GB192-15i wei\u00df 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logamax plus GB192-15iT100 S Schwarz 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax plus GB192-15iT100 S Wei\u00df 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax plus GB192-15iT150 Schwarz 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax plus GB192-25i 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logamax plus GB192-25i wei\u00df 4",
-                    "size": 4
-                },
-                {
-                    "name": "Logamax plus GB192-25iT100 S Schwarz 4",
-                    "size": 4
-                },
-                {
-                    "name": "Logamax plus GB192-25iT150 Schwarz 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logano plus GB 125 18 kW 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logano plus GB 125 22 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logano plus GB 125 35 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logano plus GB145-15 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logano plus GB212-15 44",
-                    "size": 44
-                },
-                {
-                    "name": "Logano plus GB212-22 9",
-                    "size": 9
-                },
-                {
-                    "name": "Logano plus GB212-30 60",
-                    "size": 60
-                },
-                {
-                    "name": "Logano plus KB192i-15 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logano plus KB192i-30 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logano plus KB195i 2",
-                    "size": 2
-                },
-                {
-                    "name": "Suprapur-O KUB 19-3 3",
-                    "size": 3
-                },
-                {
-                    "name": "Suprapur-O KUB 27-4 1",
-                    "size": 1
-                },
-                {
-                    "name": "SuprapurCompact-O KUB 18 4",
-                    "size": 4
-                },
-                {
-                    "name": "TOB-18 18,6 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "U154 K 20 kW 4",
-                    "size": 4
-                },
-                {
-                    "name": "U154 K 24 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "VCI 266/5-5 Erdgas E 26kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 13 kW 9",
-                    "size": 9
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 19 kW 9",
-                    "size": 9
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 26 kW 18",
-                    "size": 18
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 35 kW 14",
-                    "size": 14
-                },
-                {
-                    "name": "Vitodens 200-W 13 kW 4",
-                    "size": 4
-                },
-                {
-                    "name": "Vitodens 200-W 19 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 200-W 26 kW 6",
-                    "size": 6
-                },
-                {
-                    "name": "Vitodens 200-W 35 kW 6",
-                    "size": 6
-                },
-                {
-                    "name": "Vitodens 200-W Kombi  26 kW raumtemperaturgef\u00fchrt 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitodens 200-W Kombi  26 kW witterungsgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 200-W Kombi  35 kW witterungsgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 200-W Kombi 26 kW witterungsgef\u00fchrt 21",
-                    "size": 21
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HA 59",
-                    "size": 59
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HA 26kW 9",
-                    "size": 9
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB 62",
-                    "size": 62
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB 26kW 7",
-                    "size": 7
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB110 40",
-                    "size": 40
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB111 40",
-                    "size": 40
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB112 26kW 23",
-                    "size": 23
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB113 9",
-                    "size": 9
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher B2TB025 13",
-                    "size": 13
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher B2SB016 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit integriertem Ladespeicher 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit integriertem Rohrwendelspeicher 4",
-                    "size": 4
-                },
-                {
-                    "name": "Vitodens 222-F 19 kW mit 100L Schichtenladespeicher B2TB026 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 222-F 19 kW mit 130L Rohrwendelspeicher B2SB017 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 222-F 19 kW mit integriertem Ladespeicher 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 222-F 26 kW mit integriertem Rohrwendelspeicher 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 222-W 13 kW mit 46L Schichenladespeicher 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitodens 222-W 19 kW mit 46L Schichtenladespeicher 7",
-                    "size": 7
-                },
-                {
-                    "name": "Vitodens 222-W 19 kW mit integriertem Ladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 300-W 19 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 300-W 26 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB 50",
-                    "size": 50
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB168 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB169 11",
-                    "size": 11
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB170 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB171 7",
-                    "size": 7
-                },
-                {
-                    "name": "Vitodens 333-F 11 kW leitungsgebunden 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher B3TB007 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 333-F 19 kW leitungsgebunden 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher B3TB008 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 333-F 26 kW leitungsgebunden 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 333-F 26 kW mit 100L Schichtenladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 19,3 kW 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 23,5 kW 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 28,5 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA004 19,3 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitoladens 300-W Typ J3HA 19,3 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitopend 200 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitopend 200 24 kW 3",
-                    "size": 3
-                },
-                {
-                    "name": "ZBS 14/100 S-3 MA 3",
-                    "size": 3
-                },
-                {
-                    "name": "ZBS 22/100 S-3 MA 2",
-                    "size": 2
-                },
-                {
-                    "name": "ZWSB 22/28-3 1",
-                    "size": 1
-                },
-                {
-                    "name": "atmoTEC plus VCW 194/4-5 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoCOMPACT VCC 206/4-5 150L 6",
-                    "size": 6
-                },
-                {
-                    "name": "ecoCOMPACT VSC 146/4-5 150L 4",
-                    "size": 4
-                },
-                {
-                    "name": "ecoCOMPACT VSC 146/4-5 200L 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoCOMPACT VSC 146/4-5 90L 27",
-                    "size": 27
-                },
-                {
-                    "name": "ecoCOMPACT VSC 206/4-5 150L 4",
-                    "size": 4
-                },
-                {
-                    "name": "ecoCOMPACT VSC 266/4-5 150L 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC exclusive VC 156/5-7 5",
-                    "size": 5
-                },
-                {
-                    "name": "ecoTEC exclusive VC 216/5-7 E/LL- Gas 6",
-                    "size": 6
-                },
-                {
-                    "name": "ecoTEC exclusive VC 216/5-7 Fl\u00fcssiggas 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC exclusive VC 326/5-7 4",
-                    "size": 4
-                },
-                {
-                    "name": "ecoTEC exclusive VC 356/4-7 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VC 146/5-5 84",
-                    "size": 84
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 3",
-                    "size": 3
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 E-Gas 38",
-                    "size": 38
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 LL-Gas 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC plus VC 266/5-5 8",
-                    "size": 8
-                },
-                {
-                    "name": "ecoTEC plus VC 266/5-5 E-Gas 9",
-                    "size": 9
-                },
-                {
-                    "name": "ecoTEC plus VC 266/5-5 LL-Gas 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VCI 206/5-5 20kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VCI 206/5-5 20kW 20L 11",
-                    "size": 11
-                },
-                {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW raumtemperaturgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt 93",
-                    "size": 93
-                },
-                {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt LL 3",
-                    "size": 3
-                },
-                {
-                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW raumtemperaturgef\u00fchrt 9",
-                    "size": 9
-                },
-                {
-                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW witterungsgef\u00fchrt 13",
-                    "size": 13
-                },
-                {
-                    "name": "ecoVIT VKK 186/5 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 226 3",
-                    "size": 3
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 286 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 366 12",
-                    "size": 12
-                },
-                {
-                    "name": "icoVIT exclusiv VKO 156/3-7 15,3 kW 3",
-                    "size": 3
-                },
-                {
-                    "name": "icoVIT exclusiv VKO 256/3-7 24,9 kW 1",
-                    "size": 1
-                }
-            ]
-        },
-        {
-            "name": "natural_gas",
+            "name": "gas",
             "children": [
                 {
                     "name": " ZWSB 22/28-3 14",
                     "size": 14
                 },
                 {
-                    "name": "CGB-2-14 1875",
-                    "size": 1875
+                    "name": "CGB-2-14 2016",
+                    "size": 2016
                 },
                 {
-                    "name": "CGB-2-20 641",
-                    "size": 641
+                    "name": "CGB-2-20 684",
+                    "size": 684
                 },
                 {
-                    "name": "CGB-2-24 298",
-                    "size": 298
+                    "name": "CGB-2-24 316",
+                    "size": 316
                 },
                 {
                     "name": "CGB-2K-20 185",
                     "size": 185
                 },
                 {
-                    "name": "CGB-2K-24 71",
-                    "size": 71
+                    "name": "CGB-2K-24 73",
+                    "size": 73
                 },
                 {
-                    "name": "CGS-2-14/120L mit integriertem Schichtenspeicher 297",
-                    "size": 297
+                    "name": "CGS-2-14/120L mit integriertem Schichtenspeicher 304",
+                    "size": 304
                 },
                 {
-                    "name": "CGS-2-14/150R mit integriertem Rohrwendelspeicher 109",
-                    "size": 109
+                    "name": "CGS-2-14/150R mit integriertem Rohrwendelspeicher 112",
+                    "size": 112
                 },
                 {
-                    "name": "CGS-2-20/150R mit integriertem Rohrwendelspeicher 18",
-                    "size": 18
+                    "name": "CGS-2-20/150R mit integriertem Rohrwendelspeicher 20",
+                    "size": 20
                 },
                 {
-                    "name": "CGS-2-20/160L mit integriertem Schichtenspeicher 117",
-                    "size": 117
+                    "name": "CGS-2-20/160L mit integriertem Schichtenspeicher 118",
+                    "size": 118
                 },
                 {
                     "name": "CGS-2-24/150R  mit integriertem Rohrwendelspeicher 6",
                     "size": 6
                 },
                 {
-                    "name": "CGS-2-24/200L mit integriertem Schichtenspeicher 45",
-                    "size": 45
+                    "name": "CGS-2-24/200L mit integriertem Schichtenspeicher 46",
+                    "size": 46
                 },
                 {
                     "name": "CGU-2K 18 kW Erdgas E UP/AP raumtemperaturgef\u00fchrt 84",
@@ -762,20 +61,20 @@
                     "size": 35
                 },
                 {
-                    "name": "CGW-2-14 kW mit 46L Schichtenladespeicher 142",
-                    "size": 142
+                    "name": "CGW-2-14 kW mit 46L Schichtenladespeicher 149",
+                    "size": 149
                 },
                 {
-                    "name": "CGW-2-14 mit integriertem Hochleistungsspeicher 19",
-                    "size": 19
+                    "name": "CGW-2-14 mit integriertem Hochleistungsspeicher 20",
+                    "size": 20
                 },
                 {
-                    "name": "CGW-2-14/100L mit integriertem Hochleistungsspeicher 49",
-                    "size": 49
+                    "name": "CGW-2-14/100L mit integriertem Hochleistungsspeicher 52",
+                    "size": 52
                 },
                 {
-                    "name": "CGW-2-20 mit 46L Schichtenladespeicher 27",
-                    "size": 27
+                    "name": "CGW-2-20 mit 46L Schichtenladespeicher 31",
+                    "size": 31
                 },
                 {
                     "name": "CGW-2-20 mit integriertem Hochleistungsspeicher 8",
@@ -802,16 +101,16 @@
                     "size": 1
                 },
                 {
-                    "name": "COB-15 15 kW 57",
-                    "size": 57
+                    "name": "COB-15 15 kW 63",
+                    "size": 63
                 },
                 {
-                    "name": "COB-20 20 kW 23",
+                    "name": "COB-20 20 kW 24",
+                    "size": 24
+                },
+                {
+                    "name": "COB-29 29 kW 23",
                     "size": 23
-                },
-                {
-                    "name": "COB-29 29 kW 20",
-                    "size": 20
                 },
                 {
                     "name": "Cerapur 9000i-20 20 kW schwarz 97",
@@ -822,84 +121,88 @@
                     "size": 37
                 },
                 {
-                    "name": "Cerapur 9000i-20 20 kW wei\u00df 19",
-                    "size": 19
+                    "name": "Cerapur 9000i-20 20 kW wei\u00df 25",
+                    "size": 25
                 },
                 {
-                    "name": "Cerapur 9000i-20 20 kW wei\u00df GCWE09 13",
-                    "size": 13
+                    "name": "Cerapur 9000i-20 20 kW wei\u00df GCWE09 15",
+                    "size": 15
                 },
                 {
                     "name": "Cerapur 9000i-30 30kW schwarz 78",
                     "size": 78
                 },
                 {
-                    "name": "Cerapur 9000i-30 30kW schwarz GCWE16 23",
-                    "size": 23
+                    "name": "Cerapur 9000i-30 30kW schwarz GCWE16 25",
+                    "size": 25
                 },
                 {
-                    "name": "Cerapur 9000i-30 30kW wei\u00df 4",
-                    "size": 4
+                    "name": "Cerapur 9000i-30 30kW wei\u00df 10",
+                    "size": 10
                 },
                 {
-                    "name": "Cerapur 9000i-30 30kW wei\u00df GCWE10 11",
-                    "size": 11
+                    "name": "Cerapur 9000i-30 30kW wei\u00df GCWE10 12",
+                    "size": 12
                 },
                 {
-                    "name": "Cerapur ZSB 14-4 2158",
-                    "size": 2158
+                    "name": "Cerapur ZSB 14-4 2338",
+                    "size": 2338
                 },
                 {
-                    "name": "Cerapur ZSB 14-5 E-Gas 382",
-                    "size": 382
+                    "name": "Cerapur ZSB 14-5 E-Gas 417",
+                    "size": 417
                 },
                 {
-                    "name": "Cerapur ZSB 14-5 E-Gas ZSB501 528",
-                    "size": 528
+                    "name": "Cerapur ZSB 14-5 E-Gas ZSB501 573",
+                    "size": 573
                 },
                 {
-                    "name": "Cerapur ZSB 14-5 LL-Gas 243",
-                    "size": 243
+                    "name": "Cerapur ZSB 14-5 LL-Gas 244",
+                    "size": 244
                 },
                 {
                     "name": "Cerapur ZSB 14-5 LL-Gas ZSB502 179",
                     "size": 179
                 },
                 {
-                    "name": "Cerapur ZSB 24-4 1059",
-                    "size": 1059
+                    "name": "Cerapur ZSB 24-4 1129",
+                    "size": 1129
                 },
                 {
-                    "name": "Cerapur ZSB 24-5 295",
-                    "size": 295
+                    "name": "Cerapur ZSB 24-5 310",
+                    "size": 310
                 },
                 {
-                    "name": "Cerapur ZSB 24-5 ZSB503 213",
-                    "size": 213
+                    "name": "Cerapur ZSB 24-5 ZSB503 233",
+                    "size": 233
                 },
                 {
-                    "name": "Cerapur ZWB  30-4 24,0 kW 243",
-                    "size": 243
+                    "name": "Cerapur ZWB  30-4 24,0 kW 252",
+                    "size": 252
                 },
                 {
                     "name": "Cerapur ZWB  30-4 24,0 kW LL-Gas 53",
                     "size": 53
                 },
                 {
-                    "name": "Cerapur ZWB 28-5 C 23 946",
-                    "size": 946
+                    "name": "Cerapur ZWB 28-5 C 23 1025",
+                    "size": 1025
                 },
                 {
-                    "name": "Cerapur ZWB 30-4 24,0 kW 620",
-                    "size": 620
+                    "name": "Cerapur ZWB 30-4 24,0 kW 687",
+                    "size": 687
                 },
                 {
-                    "name": "Cerapur ZWB 30-4 24,0 kW E-Gas 127",
-                    "size": 127
+                    "name": "Cerapur ZWB 30-4 24,0 kW E-Gas 134",
+                    "size": 134
                 },
                 {
                     "name": "CerapurACU ZWSB 22/28-3 42L Erdgas E 60",
                     "size": 60
+                },
+                {
+                    "name": "CerapurACU ZWSB 22/28-3 42L Fl\u00fcssiggas 10",
+                    "size": 10
                 },
                 {
                     "name": "CerapurACU ZWSB 22/28-3 42L LL-Gas 43",
@@ -918,12 +221,12 @@
                     "size": 2
                 },
                 {
-                    "name": "CerapurComfort-Eco ZSBE 28-3 4",
-                    "size": 4
+                    "name": "CerapurComfort-Eco ZSBE 28-3 8",
+                    "size": 8
                 },
                 {
-                    "name": "CerapurModul 9000i-20/100S schwarz 51",
-                    "size": 51
+                    "name": "CerapurModul 9000i-20/100S schwarz 53",
+                    "size": 53
                 },
                 {
                     "name": "CerapurModul 9000i-20/100S wei\u00df 37",
@@ -958,32 +261,32 @@
                     "size": 7
                 },
                 {
-                    "name": "CerapurModul Smart ZBS 22/75-3 E 226",
-                    "size": 226
+                    "name": "CerapurModul Smart ZBS 22/75-3 E 240",
+                    "size": 240
                 },
                 {
                     "name": "CerapurModul Smart ZBS 22/75-3 LL 98",
                     "size": 98
                 },
                 {
-                    "name": "CerapurModul ZBS 14/100 S-3 MA E 547",
-                    "size": 547
+                    "name": "CerapurModul ZBS 14/100 S-3 MA E 582",
+                    "size": 582
                 },
                 {
                     "name": "CerapurModul ZBS 14/100 S-3 MA LL 271",
                     "size": 271
                 },
                 {
-                    "name": "CerapurModul ZBS 22/100 S-3 MA E 132",
-                    "size": 132
+                    "name": "CerapurModul ZBS 22/100 S-3 MA E 144",
+                    "size": 144
                 },
                 {
-                    "name": "CerapurModul ZBS 22/100 S-3 MA LL 80",
-                    "size": 80
+                    "name": "CerapurModul ZBS 22/100 S-3 MA LL 81",
+                    "size": 81
                 },
                 {
-                    "name": "CerapurModul ZBS 30/150 S-3 MA 60",
-                    "size": 60
+                    "name": "CerapurModul ZBS 30/150 S-3 MA 62",
+                    "size": 62
                 },
                 {
                     "name": "CerapurModul ZWSB 22/28-3 2",
@@ -994,36 +297,40 @@
                     "size": 9
                 },
                 {
+                    "name": "CerapurModul ZWSB 22/28-3 Fl\u00fcssiggas 1",
+                    "size": 1
+                },
+                {
                     "name": "CerapurModul ZWSB 22/28-3 LL-Gas 11",
                     "size": 11
                 },
                 {
-                    "name": "Cerastar Comfort ZWR 18-7 675",
-                    "size": 675
+                    "name": "Cerastar Comfort ZWR 18-7 677",
+                    "size": 677
                 },
                 {
                     "name": "Cerastar Comfort ZWR 24-7 66",
                     "size": 66
                 },
                 {
-                    "name": "GB172-14 T120 mit integriertem Rohrwendelspeicher 184",
-                    "size": 184
+                    "name": "GB172-14 T120 mit integriertem Rohrwendelspeicher 194",
+                    "size": 194
                 },
                 {
-                    "name": "GB172-14-T150 mit integriertem Rohrwendelspeicher 69",
-                    "size": 69
+                    "name": "GB172-14-T150 mit integriertem Rohrwendelspeicher 72",
+                    "size": 72
                 },
                 {
-                    "name": "GB172-14-T150S mit integriertem Ladespeicher 82",
-                    "size": 82
+                    "name": "GB172-14-T150S mit integriertem Ladespeicher 83",
+                    "size": 83
                 },
                 {
-                    "name": "GB172-20 T100 S mit integriertem Ladespeicher 209",
-                    "size": 209
+                    "name": "GB172-20 T100 S mit integriertem Ladespeicher 212",
+                    "size": 212
                 },
                 {
-                    "name": "GB172-20 T150 mit integriertem Rohrwendelspeicher 49",
-                    "size": 49
+                    "name": "GB172-20 T150 mit integriertem Rohrwendelspeicher 56",
+                    "size": 56
                 },
                 {
                     "name": "GB172-20 T150 mit integriertem Rohwendelpeicher 23",
@@ -1034,44 +341,44 @@
                     "size": 37
                 },
                 {
-                    "name": "GB172-24-T50 mit integriertem Ladepeicher 22",
-                    "size": 22
+                    "name": "GB172-24-T50 mit integriertem Ladepeicher 25",
+                    "size": 25
                 },
                 {
                     "name": "GB172-24-T50 mit integriertem Ladespeicher 19",
                     "size": 19
                 },
                 {
-                    "name": "GB172-24-T50 mit integriertem Rohrwendelspeicher 147",
-                    "size": 147
+                    "name": "GB172-24-T50 mit integriertem Rohrwendelspeicher 157",
+                    "size": 157
                 },
                 {
                     "name": "Logamax Plus GB 162 25 kW 1",
                     "size": 1
                 },
                 {
-                    "name": "Logamax Plus GB 162 35 kW 13",
-                    "size": 13
+                    "name": "Logamax Plus GB 162 35 kW 14",
+                    "size": 14
                 },
                 {
-                    "name": "Logamax Plus GB 172 14 kW 170",
-                    "size": 170
+                    "name": "Logamax Plus GB 172 14 kW 176",
+                    "size": 176
                 },
                 {
-                    "name": "Logamax Plus GB 172 20 kW 111",
-                    "size": 111
+                    "name": "Logamax Plus GB 172 20 kW 114",
+                    "size": 114
                 },
                 {
-                    "name": "Logamax Plus GB 172 24 kW 26",
-                    "size": 26
+                    "name": "Logamax Plus GB 172 24 kW 28",
+                    "size": 28
                 },
                 {
                     "name": "Logamax Plus GB 192-35i 9",
                     "size": 9
                 },
                 {
-                    "name": "Logamax Plus GB 192-35i wei\u00df 270",
-                    "size": 270
+                    "name": "Logamax Plus GB 192-35i wei\u00df 302",
+                    "size": 302
                 },
                 {
                     "name": "Logamax Plus GB 192i 15 kW 5",
@@ -1082,8 +389,8 @@
                     "size": 1
                 },
                 {
-                    "name": "Logamax Plus GB 192i 35 kW 4",
-                    "size": 4
+                    "name": "Logamax Plus GB 192i 35 kW 5",
+                    "size": 5
                 },
                 {
                     "name": "Logamax plus GB162-15 1",
@@ -1098,52 +405,52 @@
                     "size": 24
                 },
                 {
-                    "name": "Logamax plus GB172 24 K 288",
-                    "size": 288
+                    "name": "Logamax plus GB172 24 K 302",
+                    "size": 302
                 },
                 {
-                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung 74",
-                    "size": 74
+                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung 75",
+                    "size": 75
                 },
                 {
-                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung E 167",
-                    "size": 167
+                    "name": "Logamax plus GB172 24 K witterungsf\u00fchrung E 180",
+                    "size": 180
                 },
                 {
-                    "name": "Logamax plus GB172-14 12506",
-                    "size": 12506
+                    "name": "Logamax plus GB172-14 13246",
+                    "size": 13246
                 },
                 {
-                    "name": "Logamax plus GB172-20 5711",
-                    "size": 5711
+                    "name": "Logamax plus GB172-20 6083",
+                    "size": 6083
                 },
                 {
-                    "name": "Logamax plus GB172-24 1399",
-                    "size": 1399
+                    "name": "Logamax plus GB172-24 1465",
+                    "size": 1465
                 },
                 {
-                    "name": "Logamax plus GB192-15i 18",
-                    "size": 18
+                    "name": "Logamax plus GB192-15i 22",
+                    "size": 22
                 },
                 {
-                    "name": "Logamax plus GB192-15i schwarz 27",
-                    "size": 27
+                    "name": "Logamax plus GB192-15i schwarz 30",
+                    "size": 30
                 },
                 {
-                    "name": "Logamax plus GB192-15i wei\u00df 158",
-                    "size": 158
+                    "name": "Logamax plus GB192-15i wei\u00df 161",
+                    "size": 161
                 },
                 {
                     "name": "Logamax plus GB192-15iT100 S 5",
                     "size": 5
                 },
                 {
-                    "name": "Logamax plus GB192-15iT100 S Schwarz 62",
-                    "size": 62
+                    "name": "Logamax plus GB192-15iT100 S Schwarz 64",
+                    "size": 64
                 },
                 {
-                    "name": "Logamax plus GB192-15iT100 S Wei\u00df 12",
-                    "size": 12
+                    "name": "Logamax plus GB192-15iT100 S Wei\u00df 14",
+                    "size": 14
                 },
                 {
                     "name": "Logamax plus GB192-15iT150 S Schwarz 8",
@@ -1154,32 +461,32 @@
                     "size": 4
                 },
                 {
-                    "name": "Logamax plus GB192-15iT150 Schwarz 29",
-                    "size": 29
+                    "name": "Logamax plus GB192-15iT150 Schwarz 33",
+                    "size": 33
                 },
                 {
                     "name": "Logamax plus GB192-15iT150 Wei\u00df 8",
                     "size": 8
                 },
                 {
-                    "name": "Logamax plus GB192-25i 21",
-                    "size": 21
+                    "name": "Logamax plus GB192-25i 22",
+                    "size": 22
                 },
                 {
                     "name": "Logamax plus GB192-25i schwarz 22",
                     "size": 22
                 },
                 {
-                    "name": "Logamax plus GB192-25i wei\u00df 109",
-                    "size": 109
+                    "name": "Logamax plus GB192-25i wei\u00df 115",
+                    "size": 115
                 },
                 {
                     "name": "Logamax plus GB192-25iT100 S 2",
                     "size": 2
                 },
                 {
-                    "name": "Logamax plus GB192-25iT100 S Schwarz 39",
-                    "size": 39
+                    "name": "Logamax plus GB192-25iT100 S Schwarz 44",
+                    "size": 44
                 },
                 {
                     "name": "Logamax plus GB192-25iT100 S Wei\u00df 9",
@@ -1198,8 +505,8 @@
                     "size": 1
                 },
                 {
-                    "name": "Logamax plus GB192-25iT150 Schwarz 14",
-                    "size": 14
+                    "name": "Logamax plus GB192-25iT150 Schwarz 16",
+                    "size": 16
                 },
                 {
                     "name": "Logamax plus GB192-25iT150 Wei\u00df 7",
@@ -1218,60 +525,60 @@
                     "size": 8
                 },
                 {
-                    "name": "Logano plus GB 125 18 kW 65",
-                    "size": 65
+                    "name": "Logano plus GB 125 18 kW 72",
+                    "size": 72
                 },
                 {
                     "name": "Logano plus GB 125 18 kW  15",
                     "size": 15
                 },
                 {
-                    "name": "Logano plus GB 125 22 kW 25",
+                    "name": "Logano plus GB 125 22 kW 31",
+                    "size": 31
+                },
+                {
+                    "name": "Logano plus GB 125 30 kW 27",
+                    "size": 27
+                },
+                {
+                    "name": "Logano plus GB 125 35 kW 25",
                     "size": 25
-                },
-                {
-                    "name": "Logano plus GB 125 30 kW 26",
-                    "size": 26
-                },
-                {
-                    "name": "Logano plus GB 125 35 kW 24",
-                    "size": 24
                 },
                 {
                     "name": "Logano plus GB 125 35 kW  2",
                     "size": 2
                 },
                 {
-                    "name": "Logano plus GB145-15 65",
-                    "size": 65
+                    "name": "Logano plus GB145-15 72",
+                    "size": 72
                 },
                 {
-                    "name": "Logano plus GB212-15 1116",
-                    "size": 1116
+                    "name": "Logano plus GB212-15 1173",
+                    "size": 1173
                 },
                 {
-                    "name": "Logano plus GB212-22 715",
-                    "size": 715
+                    "name": "Logano plus GB212-22 751",
+                    "size": 751
                 },
                 {
-                    "name": "Logano plus GB212-30 979",
-                    "size": 979
+                    "name": "Logano plus GB212-30 1052",
+                    "size": 1052
                 },
                 {
-                    "name": "Logano plus KB192i-15 91",
-                    "size": 91
+                    "name": "Logano plus KB192i-15 94",
+                    "size": 94
                 },
                 {
-                    "name": "Logano plus KB192i-30 71",
-                    "size": 71
+                    "name": "Logano plus KB192i-30 73",
+                    "size": 73
                 },
                 {
-                    "name": "Logano plus KB195i 28",
-                    "size": 28
+                    "name": "Logano plus KB195i 30",
+                    "size": 30
                 },
                 {
-                    "name": "Suprapur-O KUB 19-3 27",
-                    "size": 27
+                    "name": "Suprapur-O KUB 19-3 31",
+                    "size": 31
                 },
                 {
                     "name": "Suprapur-O KUB 19-4 13",
@@ -1282,32 +589,32 @@
                     "size": 8
                 },
                 {
-                    "name": "Suprapur-O KUB 27-4 6",
-                    "size": 6
+                    "name": "Suprapur-O KUB 27-4 7",
+                    "size": 7
                 },
                 {
-                    "name": "SuprapurCompact-O KUB 18 70",
-                    "size": 70
+                    "name": "SuprapurCompact-O KUB 18 76",
+                    "size": 76
                 },
                 {
                     "name": "TOB-18 1",
                     "size": 1
                 },
                 {
-                    "name": "TOB-18 18,6 kW 63",
-                    "size": 63
+                    "name": "TOB-18 18,6 kW 65",
+                    "size": 65
                 },
                 {
                     "name": "U154 K 26",
                     "size": 26
                 },
                 {
-                    "name": "U154 K 20 kW 45",
-                    "size": 45
+                    "name": "U154 K 20 kW 49",
+                    "size": 49
                 },
                 {
-                    "name": "U154 K 24 kW 7",
-                    "size": 7
+                    "name": "U154 K 24 kW 8",
+                    "size": 8
                 },
                 {
                     "name": "VCI 206/5-5 Erdgas E 20kW 1",
@@ -1318,6 +625,10 @@
                     "size": 2
                 },
                 {
+                    "name": "VCI 266/5-5 Erdgas E 26kW 1",
+                    "size": 1
+                },
+                {
                     "name": "VCI 266/5-5 Erdgas LL 26kW 1",
                     "size": 1
                 },
@@ -1326,132 +637,132 @@
                     "size": 97
                 },
                 {
-                    "name": "Vitocrossal 300 Typ CU3A 13 kW 508",
-                    "size": 508
+                    "name": "Vitocrossal 300 Typ CU3A 13 kW 529",
+                    "size": 529
                 },
                 {
-                    "name": "Vitocrossal 300 Typ CU3A 19 kW 683",
-                    "size": 683
+                    "name": "Vitocrossal 300 Typ CU3A 19 kW 708",
+                    "size": 708
                 },
                 {
-                    "name": "Vitocrossal 300 Typ CU3A 26 kW 313",
-                    "size": 313
+                    "name": "Vitocrossal 300 Typ CU3A 26 kW 339",
+                    "size": 339
                 },
                 {
-                    "name": "Vitocrossal 300 Typ CU3A 35 kW 365",
-                    "size": 365
+                    "name": "Vitocrossal 300 Typ CU3A 35 kW 386",
+                    "size": 386
                 },
                 {
-                    "name": "Vitodens 200-W 13 kW 115",
-                    "size": 115
+                    "name": "Vitodens 200-W 13 kW 119",
+                    "size": 119
                 },
                 {
-                    "name": "Vitodens 200-W 19 kW 97",
-                    "size": 97
+                    "name": "Vitodens 200-W 19 kW 99",
+                    "size": 99
                 },
                 {
-                    "name": "Vitodens 200-W 26 kW 49",
-                    "size": 49
+                    "name": "Vitodens 200-W 26 kW 55",
+                    "size": 55
                 },
                 {
-                    "name": "Vitodens 200-W 35 kW 62",
-                    "size": 62
+                    "name": "Vitodens 200-W 35 kW 68",
+                    "size": 68
                 },
                 {
-                    "name": "Vitodens 200-W Kombi  26 kW raumtemperaturgef\u00fchrt 129",
-                    "size": 129
+                    "name": "Vitodens 200-W Kombi  26 kW raumtemperaturgef\u00fchrt 134",
+                    "size": 134
                 },
                 {
-                    "name": "Vitodens 200-W Kombi  26 kW witterungsgef\u00fchrt 11",
-                    "size": 11
+                    "name": "Vitodens 200-W Kombi  26 kW witterungsgef\u00fchrt 12",
+                    "size": 12
                 },
                 {
                     "name": "Vitodens 200-W Kombi  35 kW raumtemperaturgef\u00fchrt 1",
                     "size": 1
                 },
                 {
-                    "name": "Vitodens 200-W Kombi  35 kW witterungsgef\u00fchrt 14",
-                    "size": 14
+                    "name": "Vitodens 200-W Kombi  35 kW witterungsgef\u00fchrt 16",
+                    "size": 16
                 },
                 {
-                    "name": "Vitodens 200-W Kombi 26 kW witterungsgef\u00fchrt 271",
-                    "size": 271
+                    "name": "Vitodens 200-W Kombi 26 kW witterungsgef\u00fchrt 292",
+                    "size": 292
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HA 779",
-                    "size": 779
+                    "name": "Vitodens 200-W Typ B2HA 845",
+                    "size": 845
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HA 26kW 89",
-                    "size": 89
+                    "name": "Vitodens 200-W Typ B2HA 26kW 100",
+                    "size": 100
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB 1112",
-                    "size": 1112
+                    "name": "Vitodens 200-W Typ B2HB 1196",
+                    "size": 1196
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB 26kW 186",
-                    "size": 186
+                    "name": "Vitodens 200-W Typ B2HB 26kW 199",
+                    "size": 199
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB110 1419",
-                    "size": 1419
+                    "name": "Vitodens 200-W Typ B2HB110 1476",
+                    "size": 1476
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB111 759",
-                    "size": 759
+                    "name": "Vitodens 200-W Typ B2HB111 805",
+                    "size": 805
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB112 26kW 299",
-                    "size": 299
+                    "name": "Vitodens 200-W Typ B2HB112 26kW 325",
+                    "size": 325
                 },
                 {
-                    "name": "Vitodens 200-W Typ B2HB113 174",
-                    "size": 174
+                    "name": "Vitodens 200-W Typ B2HB113 183",
+                    "size": 183
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher 80",
-                    "size": 80
+                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher 81",
+                    "size": 81
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher B2TB025 220",
-                    "size": 220
+                    "name": "Vitodens 222-F 13 kW mit 100L Schichtenladespeicher B2TB025 233",
+                    "size": 233
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher 89",
-                    "size": 89
+                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher 92",
+                    "size": 92
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher B2SB016 165",
-                    "size": 165
+                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher B2SB016 171",
+                    "size": 171
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit integriertem Ladespeicher 115",
-                    "size": 115
+                    "name": "Vitodens 222-F 13 kW mit integriertem Ladespeicher 120",
+                    "size": 120
                 },
                 {
-                    "name": "Vitodens 222-F 13 kW mit integriertem Rohrwendelspeicher 68",
-                    "size": 68
+                    "name": "Vitodens 222-F 13 kW mit integriertem Rohrwendelspeicher 72",
+                    "size": 72
                 },
                 {
                     "name": "Vitodens 222-F 19 kW mit 100L Schichtenladespeicher 55",
                     "size": 55
                 },
                 {
-                    "name": "Vitodens 222-F 19 kW mit 100L Schichtenladespeicher B2TB026 91",
-                    "size": 91
+                    "name": "Vitodens 222-F 19 kW mit 100L Schichtenladespeicher B2TB026 92",
+                    "size": 92
                 },
                 {
                     "name": "Vitodens 222-F 19 kW mit 130L Rohrwendelspeicher 42",
                     "size": 42
                 },
                 {
-                    "name": "Vitodens 222-F 19 kW mit 130L Rohrwendelspeicher B2SB017 67",
-                    "size": 67
+                    "name": "Vitodens 222-F 19 kW mit 130L Rohrwendelspeicher B2SB017 69",
+                    "size": 69
                 },
                 {
-                    "name": "Vitodens 222-F 19 kW mit integriertem Ladespeicher 78",
-                    "size": 78
+                    "name": "Vitodens 222-F 19 kW mit integriertem Ladespeicher 80",
+                    "size": 80
                 },
                 {
                     "name": "Vitodens 222-F 19 kW mit integriertem Rohrwendelspeicher 48",
@@ -1474,12 +785,12 @@
                     "size": 11
                 },
                 {
-                    "name": "Vitodens 222-F 26 kW mit integriertem Ladespeicher 40",
-                    "size": 40
+                    "name": "Vitodens 222-F 26 kW mit integriertem Ladespeicher 42",
+                    "size": 42
                 },
                 {
-                    "name": "Vitodens 222-F 26 kW mit integriertem Rohrwendelspeicher 17",
-                    "size": 17
+                    "name": "Vitodens 222-F 26 kW mit integriertem Rohrwendelspeicher 19",
+                    "size": 19
                 },
                 {
                     "name": "Vitodens 222-F 35 kW mit 130L Schichtenladespeicher 10",
@@ -1494,20 +805,20 @@
                     "size": 22
                 },
                 {
-                    "name": "Vitodens 222-W 13 kW mit 46L Schichenladespeicher 133",
-                    "size": 133
+                    "name": "Vitodens 222-W 13 kW mit 46L Schichenladespeicher 138",
+                    "size": 138
                 },
                 {
                     "name": "Vitodens 222-W 13 kW mit integriertem Ladespeicher 58",
                     "size": 58
                 },
                 {
-                    "name": "Vitodens 222-W 19 kW mit 46L Schichtenladespeicher 30",
-                    "size": 30
+                    "name": "Vitodens 222-W 19 kW mit 46L Schichtenladespeicher 37",
+                    "size": 37
                 },
                 {
-                    "name": "Vitodens 222-W 19 kW mit integriertem Ladespeicher 12",
-                    "size": 12
+                    "name": "Vitodens 222-W 19 kW mit integriertem Ladespeicher 13",
+                    "size": 13
                 },
                 {
                     "name": "Vitodens 222-W 26 kW mit 46L Schichenladespeicher 16",
@@ -1530,68 +841,68 @@
                     "size": 18
                 },
                 {
-                    "name": "Vitodens 300-W 19 kW 65",
-                    "size": 65
+                    "name": "Vitodens 300-W 19 kW 66",
+                    "size": 66
                 },
                 {
-                    "name": "Vitodens 300-W 26 kW 14",
-                    "size": 14
+                    "name": "Vitodens 300-W 26 kW 15",
+                    "size": 15
                 },
                 {
                     "name": "Vitodens 300-W 35 kW 7",
                     "size": 7
                 },
                 {
-                    "name": "Vitodens 300-W Typ B3HB 1249",
-                    "size": 1249
+                    "name": "Vitodens 300-W Typ B3HB 1323",
+                    "size": 1323
                 },
                 {
-                    "name": "Vitodens 300-W Typ B3HB168 181",
-                    "size": 181
+                    "name": "Vitodens 300-W Typ B3HB168 189",
+                    "size": 189
                 },
                 {
-                    "name": "Vitodens 300-W Typ B3HB169 384",
-                    "size": 384
+                    "name": "Vitodens 300-W Typ B3HB169 398",
+                    "size": 398
                 },
                 {
-                    "name": "Vitodens 300-W Typ B3HB170 85",
-                    "size": 85
+                    "name": "Vitodens 300-W Typ B3HB170 86",
+                    "size": 86
                 },
                 {
-                    "name": "Vitodens 300-W Typ B3HB171 38",
-                    "size": 38
+                    "name": "Vitodens 300-W Typ B3HB171 45",
+                    "size": 45
                 },
                 {
-                    "name": "Vitodens 333-F 11 kW leitungsgebunden 110",
-                    "size": 110
+                    "name": "Vitodens 333-F 11 kW leitungsgebunden 111",
+                    "size": 111
                 },
                 {
-                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher 84",
-                    "size": 84
+                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher 88",
+                    "size": 88
                 },
                 {
-                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher B3TB007 101",
-                    "size": 101
+                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher B3TB007 103",
+                    "size": 103
                 },
                 {
-                    "name": "Vitodens 333-F 19 kW leitungsgebunden 218",
-                    "size": 218
+                    "name": "Vitodens 333-F 19 kW leitungsgebunden 221",
+                    "size": 221
                 },
                 {
-                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher 202",
-                    "size": 202
+                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher 206",
+                    "size": 206
                 },
                 {
-                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher B3TB008 100",
-                    "size": 100
+                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher B3TB008 104",
+                    "size": 104
                 },
                 {
-                    "name": "Vitodens 333-F 26 kW leitungsgebunden 54",
-                    "size": 54
+                    "name": "Vitodens 333-F 26 kW leitungsgebunden 55",
+                    "size": 55
                 },
                 {
-                    "name": "Vitodens 333-F 26 kW mit 100L Schichtenladespeicher 41",
-                    "size": 41
+                    "name": "Vitodens 333-F 26 kW mit 100L Schichtenladespeicher 43",
+                    "size": 43
                 },
                 {
                     "name": "Vitodens 333-F 26 kW mit 100L Schichtenladespeicher B3TB009 36",
@@ -1602,20 +913,20 @@
                     "size": 5
                 },
                 {
-                    "name": "Vitoladens 300-C Typ J3RA 19,3 kW 36",
-                    "size": 36
+                    "name": "Vitoladens 300-C Typ J3RA 19,3 kW 43",
+                    "size": 43
                 },
                 {
-                    "name": "Vitoladens 300-C Typ J3RA 23,5 kW 9",
-                    "size": 9
+                    "name": "Vitoladens 300-C Typ J3RA 23,5 kW 16",
+                    "size": 16
                 },
                 {
-                    "name": "Vitoladens 300-C Typ J3RA 28,5 kW 15",
-                    "size": 15
+                    "name": "Vitoladens 300-C Typ J3RA 28,5 kW 18",
+                    "size": 18
                 },
                 {
-                    "name": "Vitoladens 300-C Typ J3RA004 19,3 kW 22",
-                    "size": 22
+                    "name": "Vitoladens 300-C Typ J3RA004 19,3 kW 26",
+                    "size": 26
                 },
                 {
                     "name": "Vitoladens 300-C Typ J3RA005 23,5 kW 7",
@@ -1634,40 +945,40 @@
                     "size": 4
                 },
                 {
-                    "name": "Vitoladens 300-W Typ J3HA 19,3 kW 8",
-                    "size": 8
+                    "name": "Vitoladens 300-W Typ J3HA 19,3 kW 9",
+                    "size": 9
                 },
                 {
                     "name": "Vitoladens 300-W Typ J3HA 23,5 kW 4",
                     "size": 4
                 },
                 {
-                    "name": "Vitoladens 300-W Typ J3HA001 19,3 kW 13",
-                    "size": 13
+                    "name": "Vitoladens 300-W Typ J3HA001 19,3 kW 14",
+                    "size": 14
                 },
                 {
                     "name": "Vitoladens 300-W Typ J3HA002 23,5 kW 2",
                     "size": 2
                 },
                 {
-                    "name": "Vitoladens 333-F 19,3kW 18",
-                    "size": 18
+                    "name": "Vitoladens 333-F 19,3kW 20",
+                    "size": 20
                 },
                 {
-                    "name": "Vitopend 200 26",
-                    "size": 26
+                    "name": "Vitopend 200 29",
+                    "size": 29
                 },
                 {
                     "name": "Vitopend 200 18 kW 41",
                     "size": 41
                 },
                 {
-                    "name": "Vitopend 200 24 kW 7",
-                    "size": 7
+                    "name": "Vitopend 200 24 kW 10",
+                    "size": 10
                 },
                 {
-                    "name": "ZBS 14/100 S-3 MA 120",
-                    "size": 120
+                    "name": "ZBS 14/100 S-3 MA 123",
+                    "size": 123
                 },
                 {
                     "name": "ZBS 14/100 S-3 MA E 15",
@@ -1678,8 +989,8 @@
                     "size": 11
                 },
                 {
-                    "name": "ZBS 22/100 S-3 MA 48",
-                    "size": 48
+                    "name": "ZBS 22/100 S-3 MA 50",
+                    "size": 50
                 },
                 {
                     "name": "ZBS 22/100 S-3 MA E 6",
@@ -1694,12 +1005,12 @@
                     "size": 5
                 },
                 {
-                    "name": "ZWSB 22/28-3 1",
-                    "size": 1
+                    "name": "ZWSB 22/28-3 2",
+                    "size": 2
                 },
                 {
-                    "name": "atmoTEC plus VCW 194/4-5 1090",
-                    "size": 1090
+                    "name": "atmoTEC plus VCW 194/4-5 1092",
+                    "size": 1092
                 },
                 {
                     "name": "atmoTEC plus VCW 194/4-5 funk 1",
@@ -1710,104 +1021,108 @@
                     "size": 56
                 },
                 {
-                    "name": "ecoCOMPACT VCC 206/4-5 150L 156",
-                    "size": 156
+                    "name": "ecoCOMPACT VCC 206/4-5 150L 162",
+                    "size": 162
                 },
                 {
                     "name": "ecoCOMPACT VCC 266/4-5 150L 15",
                     "size": 15
                 },
                 {
-                    "name": "ecoCOMPACT VSC 146/4-5 150L 129",
-                    "size": 129
+                    "name": "ecoCOMPACT VSC 146/4-5 150L 133",
+                    "size": 133
                 },
                 {
-                    "name": "ecoCOMPACT VSC 146/4-5 200L 7",
-                    "size": 7
+                    "name": "ecoCOMPACT VSC 146/4-5 200L 8",
+                    "size": 8
                 },
                 {
-                    "name": "ecoCOMPACT VSC 146/4-5 90L 466",
-                    "size": 466
+                    "name": "ecoCOMPACT VSC 146/4-5 90L 496",
+                    "size": 496
                 },
                 {
-                    "name": "ecoCOMPACT VSC 206/4-5 150L 77",
-                    "size": 77
+                    "name": "ecoCOMPACT VSC 206/4-5 150L 81",
+                    "size": 81
                 },
                 {
                     "name": "ecoCOMPACT VSC 206/4-5 200L 8",
                     "size": 8
                 },
                 {
-                    "name": "ecoCOMPACT VSC 206/4-5 90L 150",
-                    "size": 150
+                    "name": "ecoCOMPACT VSC 206/4-5 90L 151",
+                    "size": 151
                 },
                 {
-                    "name": "ecoCOMPACT VSC 266/4-5 150L 27",
-                    "size": 27
+                    "name": "ecoCOMPACT VSC 266/4-5 150L 28",
+                    "size": 28
                 },
                 {
                     "name": "ecoCOMPACT VSC 266/4-5 200L 9",
                     "size": 9
                 },
                 {
-                    "name": "ecoTEC exclusive VC 156/5-7 154",
-                    "size": 154
+                    "name": "ecoTEC exclusive VC 156/5-7 161",
+                    "size": 161
                 },
                 {
                     "name": "ecoTEC exclusive VC 216/5-7 7",
                     "size": 7
                 },
                 {
-                    "name": "ecoTEC exclusive VC 216/5-7 E/LL- Gas 66",
-                    "size": 66
+                    "name": "ecoTEC exclusive VC 216/5-7 E/LL- Gas 74",
+                    "size": 74
+                },
+                {
+                    "name": "ecoTEC exclusive VC 216/5-7 Fl\u00fcssiggas 2",
+                    "size": 2
                 },
                 {
                     "name": "ecoTEC exclusive VC 276/5-7 40",
                     "size": 40
                 },
                 {
-                    "name": "ecoTEC exclusive VC 326/5-7 151",
-                    "size": 151
+                    "name": "ecoTEC exclusive VC 326/5-7 157",
+                    "size": 157
                 },
                 {
-                    "name": "ecoTEC exclusive VC 356/4-7 10",
-                    "size": 10
+                    "name": "ecoTEC exclusive VC 356/4-7 11",
+                    "size": 11
                 },
                 {
-                    "name": "ecoTEC plus VC 146/5-5 1897",
-                    "size": 1897
+                    "name": "ecoTEC plus VC 146/5-5 1988",
+                    "size": 1988
                 },
                 {
-                    "name": "ecoTEC plus VC 206/5-5 264",
-                    "size": 264
+                    "name": "ecoTEC plus VC 206/5-5 269",
+                    "size": 269
                 },
                 {
-                    "name": "ecoTEC plus VC 206/5-5 E-Gas 373",
-                    "size": 373
+                    "name": "ecoTEC plus VC 206/5-5 E-Gas 418",
+                    "size": 418
                 },
                 {
-                    "name": "ecoTEC plus VC 206/5-5 LL-Gas 218",
-                    "size": 218
+                    "name": "ecoTEC plus VC 206/5-5 LL-Gas 224",
+                    "size": 224
                 },
                 {
-                    "name": "ecoTEC plus VC 266/5-5 87",
-                    "size": 87
+                    "name": "ecoTEC plus VC 266/5-5 95",
+                    "size": 95
                 },
                 {
-                    "name": "ecoTEC plus VC 266/5-5 E-Gas 126",
-                    "size": 126
+                    "name": "ecoTEC plus VC 266/5-5 E-Gas 139",
+                    "size": 139
                 },
                 {
-                    "name": "ecoTEC plus VC 266/5-5 LL-Gas 37",
-                    "size": 37
+                    "name": "ecoTEC plus VC 266/5-5 LL-Gas 38",
+                    "size": 38
                 },
                 {
-                    "name": "ecoTEC plus VCI 206/5-5 20kW 45",
-                    "size": 45
+                    "name": "ecoTEC plus VCI 206/5-5 20kW 46",
+                    "size": 46
                 },
                 {
-                    "name": "ecoTEC plus VCI 206/5-5 20kW 20L 189",
-                    "size": 189
+                    "name": "ecoTEC plus VCI 206/5-5 20kW 20L 201",
+                    "size": 201
                 },
                 {
                     "name": "ecoTEC plus VCI 266/5-5 26kW 1",
@@ -1822,20 +1137,20 @@
                     "size": 247
                 },
                 {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW raumtemperaturgef\u00fchrt 406",
-                    "size": 406
+                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW raumtemperaturgef\u00fchrt 407",
+                    "size": 407
                 },
                 {
                     "name": "ecoTEC plus VCW 206/5-5 20,6 kW raumtemperaturgef\u00fchrt LL 129",
                     "size": 129
                 },
                 {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt 530",
-                    "size": 530
+                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt 624",
+                    "size": 624
                 },
                 {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt LL 297",
-                    "size": 297
+                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt LL 300",
+                    "size": 300
                 },
                 {
                     "name": "ecoTEC plus VCW 266/5-5 26,6 kW E-Gas raumtemperaturgef\u00fchrt 6",
@@ -1854,40 +1169,40 @@
                     "size": 2
                 },
                 {
-                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW raumtemperaturgef\u00fchrt 22",
-                    "size": 22
+                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW raumtemperaturgef\u00fchrt 31",
+                    "size": 31
                 },
                 {
-                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW witterungsgef\u00fchrt 35",
-                    "size": 35
+                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW witterungsgef\u00fchrt 49",
+                    "size": 49
                 },
                 {
-                    "name": "ecoVIT VKK 186/5 122",
-                    "size": 122
+                    "name": "ecoVIT VKK 186/5 126",
+                    "size": 126
                 },
                 {
                     "name": "ecoVIT VKK 256/5 1",
                     "size": 1
                 },
                 {
-                    "name": "ecoVIT exclusiv VKK 226 146",
-                    "size": 146
+                    "name": "ecoVIT exclusiv VKK 226 157",
+                    "size": 157
                 },
                 {
-                    "name": "ecoVIT exclusiv VKK 286 64",
-                    "size": 64
+                    "name": "ecoVIT exclusiv VKK 286 68",
+                    "size": 68
                 },
                 {
-                    "name": "ecoVIT exclusiv VKK 366 198",
-                    "size": 198
+                    "name": "ecoVIT exclusiv VKK 366 213",
+                    "size": 213
                 },
                 {
-                    "name": "icoVIT exclusiv VKO 156/3-7 15,3 kW 19",
-                    "size": 19
+                    "name": "icoVIT exclusiv VKO 156/3-7 15,3 kW 22",
+                    "size": 22
                 },
                 {
-                    "name": "icoVIT exclusiv VKO 256/3-7 24,9 kW 16",
-                    "size": 16
+                    "name": "icoVIT exclusiv VKO 256/3-7 24,9 kW 17",
+                    "size": 17
                 },
                 {
                     "name": "icoVIT exclusiv VKO 356/3-7 35,7 kW 8",
@@ -2373,339 +1688,6 @@
                 {
                     "name": "icoVIT exclusiv VKO 356/3-7 35,7 kW 136",
                     "size": 136
-                }
-            ]
-        },
-        {
-            "name": "other",
-            "children": [
-                {
-                    "name": "CGB-2-14 34",
-                    "size": 34
-                },
-                {
-                    "name": "CGB-2-20 15",
-                    "size": 15
-                },
-                {
-                    "name": "CGB-2-24 2",
-                    "size": 2
-                },
-                {
-                    "name": "CGS-2-14/120L mit integriertem Schichtenspeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "CGS-2-24/200L mit integriertem Schichtenspeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "CGW-2-20 mit 46L Schichtenladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "COB-15 15 kW 5",
-                    "size": 5
-                },
-                {
-                    "name": "COB-20 20 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "COB-29 29 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Cerapur ZSB 14-4 6",
-                    "size": 6
-                },
-                {
-                    "name": "Cerapur ZSB 14-5 E-Gas ZSB501 4",
-                    "size": 4
-                },
-                {
-                    "name": "Cerapur ZSB 24-4 2",
-                    "size": 2
-                },
-                {
-                    "name": "Cerapur ZSB 24-5 5",
-                    "size": 5
-                },
-                {
-                    "name": "Cerapur ZSB 24-5 ZSB503 8",
-                    "size": 8
-                },
-                {
-                    "name": "Cerapur ZWB 28-5 C 23 3",
-                    "size": 3
-                },
-                {
-                    "name": "Cerapur ZWB 30-4 24,0 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "CerapurModul Smart ZBS 22/75-3 E 1",
-                    "size": 1
-                },
-                {
-                    "name": "CerapurModul ZBS 22/100 S-3 MA LL 1",
-                    "size": 1
-                },
-                {
-                    "name": "CerapurModul ZBS 30/150 S-3 MA 1",
-                    "size": 1
-                },
-                {
-                    "name": "GB172-14 T120 mit integriertem Rohrwendelspeicher 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax Plus GB 192-35i wei\u00df 10",
-                    "size": 10
-                },
-                {
-                    "name": "Logamax plus GB172-14 57",
-                    "size": 57
-                },
-                {
-                    "name": "Logamax plus GB172-20 68",
-                    "size": 68
-                },
-                {
-                    "name": "Logamax plus GB172-24 9",
-                    "size": 9
-                },
-                {
-                    "name": "Logamax plus GB192-15i 3",
-                    "size": 3
-                },
-                {
-                    "name": "Logamax plus GB192-15iT150 Schwarz 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax plus GB192-25i wei\u00df 2",
-                    "size": 2
-                },
-                {
-                    "name": "Logamax plus GB192-25iT100 S Schwarz 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logano plus GB 125 18 kW 4",
-                    "size": 4
-                },
-                {
-                    "name": "Logano plus GB 125 22 kW 4",
-                    "size": 4
-                },
-                {
-                    "name": "Logano plus GB 125 30 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Logano plus GB145-15 4",
-                    "size": 4
-                },
-                {
-                    "name": "Logano plus GB212-15 13",
-                    "size": 13
-                },
-                {
-                    "name": "Logano plus GB212-22 27",
-                    "size": 27
-                },
-                {
-                    "name": "Logano plus GB212-30 13",
-                    "size": 13
-                },
-                {
-                    "name": "Suprapur-O KUB 19-3 1",
-                    "size": 1
-                },
-                {
-                    "name": "SuprapurCompact-O KUB 18 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 13 kW 12",
-                    "size": 12
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 19 kW 16",
-                    "size": 16
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 26 kW 8",
-                    "size": 8
-                },
-                {
-                    "name": "Vitocrossal 300 Typ CU3A 35 kW 7",
-                    "size": 7
-                },
-                {
-                    "name": "Vitodens 200-W Kombi  35 kW witterungsgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HA 7",
-                    "size": 7
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HA 26kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB 22",
-                    "size": 22
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB 26kW 6",
-                    "size": 6
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB110 17",
-                    "size": 17
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB111 6",
-                    "size": 6
-                },
-                {
-                    "name": "Vitodens 200-W Typ B2HB112 26kW 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitodens 222-F 13 kW mit 130L Rohrwendelspeicher B2SB016 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 222-F 26 kW mit integriertem Ladespeicher 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB 24",
-                    "size": 24
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB168 5",
-                    "size": 5
-                },
-                {
-                    "name": "Vitodens 300-W Typ B3HB169 3",
-                    "size": 3
-                },
-                {
-                    "name": "Vitodens 333-F 11 kW mit 100L Schichtenladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 333-F 19 kW leitungsgebunden 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher 4",
-                    "size": 4
-                },
-                {
-                    "name": "Vitodens 333-F 19 kW mit 100L Schichtenladespeicher B3TB008 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitodens 333-F 26 kW mit 100L Schichtenladespeicher 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 19,3 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 23,5 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA 28,5 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitoladens 300-C Typ J3RA004 19,3 kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "Vitoladens 300-W Typ J3HA001 19,3 kW 1",
-                    "size": 1
-                },
-                {
-                    "name": "Vitoladens 333-F 19,3kW 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoCOMPACT VSC 146/4-5 90L 3",
-                    "size": 3
-                },
-                {
-                    "name": "ecoCOMPACT VSC 206/4-5 90L 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC exclusive VC 156/5-7 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC exclusive VC 216/5-7 E/LL- Gas 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC exclusive VC 326/5-7 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC plus VC 146/5-5 7",
-                    "size": 7
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 E-Gas 7",
-                    "size": 7
-                },
-                {
-                    "name": "ecoTEC plus VC 206/5-5 LL-Gas 4",
-                    "size": 4
-                },
-                {
-                    "name": "ecoTEC plus VC 266/5-5 E-Gas 4",
-                    "size": 4
-                },
-                {
-                    "name": "ecoTEC plus VCI 206/5-5 20kW 20L 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VCW 206/5-5 20,6 kW witterungsgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoTEC plus VCW 266/5-5 26,6 kW witterungsgef\u00fchrt 1",
-                    "size": 1
-                },
-                {
-                    "name": "ecoVIT VKK 186/5 3",
-                    "size": 3
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 226 8",
-                    "size": 8
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 286 2",
-                    "size": 2
-                },
-                {
-                    "name": "ecoVIT exclusiv VKK 366 3",
-                    "size": 3
                 }
             ]
         }
