@@ -3,4 +3,5 @@
 *.pyc
 *.db
 *.orig
+*.pkl
 !/.gitignore
