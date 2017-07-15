@@ -97,13 +97,13 @@ class ML(object):
             self.df[column] = func(self.df)
         return self.df
 
-    def split_test(self, n_splits=6):
+    def split_train_test(self, n_splits=6):
         # not general!!!
         time_split = model_selection.TimeSeriesSplit(n_splits=n_splits)
         # get last element of iterator:
         train_idx, test_idx = list(time_split.split(self.df))[-1]
-        self.df_test = self.df.iloc[test_idx]
         self.df_train = self.df.iloc[train_idx]
+        self.df_test = self.df.iloc[test_idx]
 
     def create_mapping(self):
         self.mapping = {}
@@ -129,7 +129,7 @@ class ML(object):
                 return 1
         return 0
 
-    def get_X(self, vectorizer=None, sparse=True):
+    def get_X(self, vectorizer=None, sparse=True, train_test=False):
         if vectorizer is not None:
             self.vectorizer = vectorizer
 
@@ -167,7 +167,7 @@ class ML(object):
         self.sampler = SMOTETomek(n_jobs=-1)
         self.X, self.y = self.sampler.fit_sample(self.X, self.y)
 
-    def cross_val(self, scoring=None, cv=4, weight=None, eval_metric=None):
+    def cross_val(self, scoring=None, cv=4, weight=None, eval_metric=None, group=None):
         if scoring is not None:
             self.metric = scoring
 
@@ -182,7 +182,13 @@ class ML(object):
         else:
             self.eval_metric = 'error'
 
+        if group is not None:
+            groups = self.df[group]
+        else:
+            groups = None
+
         self.cross_vals = model_selection.cross_val_score(self.model, self.X, self.y, scoring=self.metric, cv=cv,
+                                                          groups=groups,
                                                           fit_params={'sample_weight': self.sample_weight,
                                                                       'eval_metric': self.eval_metric}, n_jobs=-1)
         return self.cross_vals
@@ -219,6 +225,7 @@ class ML(object):
             self.eval_metric = 'error'
 
         self.model.fit(self.X, self.y, sample_weight=self.sample_weight, eval_metric=self.eval_metric)
+
         self.feature_importances = pd.DataFrame([self.feature_columns.keys(), self.model.feature_importances_],
                                            index=['feature', 'importance']).T.sort_values(by='importance',
                                                                                           ascending=False)

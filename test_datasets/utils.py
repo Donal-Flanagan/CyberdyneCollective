@@ -14,9 +14,6 @@ convert_dict = {'created': pd.to_datetime,
                      'planned_installation_time': pd.to_numeric,
                      'status_type': pd.to_numeric}
 
-def get_end_of_month(df):
-    return df['created'].dt.is_month_end
-
 def get_era(df):
     return df['era'].apply(lambda s: int(s[3:]))
 
