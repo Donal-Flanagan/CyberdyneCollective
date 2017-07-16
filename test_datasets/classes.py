@@ -6,22 +6,23 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn import preprocessing, feature_extraction, feature_selection, model_selection, metrics
+import scikitplot.plotters as skplt
 import xgboost as xgb
 from imblearn.combine import SMOTETomek
 
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 import utils
 
 
 class ML(object):
-    def __init__(self, df=None, x_columns=None, y_column=None, convert_dict=None, keep_dict=None,
+    def __init__(self, df, x_columns=None, y_column=None, convert_dict=None, keep_dict=None,
                  drop_dict=None, replace_dict=None, feature_dict=None,
                  method=None, vectorizer=None, model_params={}, *args, **kwargs):
         super(ML, self).__init__()
-        if df is not None:
-            self.df = df.copy()
-            self.n_columns = len(self.df.columns) - 2
+        self.df = df.copy()
+        self.n_columns = len(self.df.columns) - 2
 
         self.x_columns = x_columns
         self.y_column = y_column
@@ -33,8 +34,12 @@ class ML(object):
         self.method = method
         self.model_params = model_params
         self.sample_weight = None
-        self.eval_metric = None
+        self.eval_metric = 'error'
+        self.eval_set = None
         self.vectorizer = vectorizer
+        self.y_prob = None
+
+    ### preprocessing
 
     def filter(self, filter_str=None):
         if filter_str is not None:
@@ -129,22 +134,50 @@ class ML(object):
                 return 1
         return 0
 
-    def get_X(self, vectorizer=None, sparse=True, train_test=False):
+    def get_X(self, vectorizer=None, sparse=True, train_test=True):
+        # refactor with get_y
         if vectorizer is not None:
             self.vectorizer = vectorizer
 
+        if train_test:
+            df_train_dict = self.df_train[self.x_columns].to_dict(orient='records')
+            df_test_dict = self.df_test[self.x_columns].to_dict(orient='records')
+        else:
+            df_dict = self.df[self.x_columns].to_dict(orient='records')
+
         if not self.vectorizer:
             self.vectorizer = feature_extraction.DictVectorizer(sparse=sparse)
-            self.X = self.vectorizer.fit_transform(self.df[self.x_columns].to_dict(orient='records'))
+            if train_test:
+                self.vectorizer.fit(df_train_dict)
+            else:
+                self.vectorizer.fit(df_dict)
+            self.feature_columns = self.vectorizer.vocabulary_
+
+        if train_test:
+            self.X_train = self.vectorizer.transform(df_train_dict)
+            self.X_test = self.vectorizer.transform(df_test_dict)
+            return self.X_train, self.X_test
         else:
-            self.X = self.vectorizer.transform(self.df[self.x_columns].to_dict(orient='records'))
+            self.X = self.vectorizer.transform(df_dict)
+            return self.X
 
-        self.feature_columns = self.vectorizer.vocabulary_
-        return self.X
+    def get_y(self, train_test=True):
+        # add categorical enconding
+        self.n_classes = self.df[self.y_column].nunique()
 
-    def get_y(self):
-        self.y = np.array(self.df[self.y_column])
-        return self.y
+        if train_test:
+            self.y_train = np.array(self.df_train[self.y_column])
+            self.y_test = np.array(self.df_test[self.y_column])
+            return self.y_train, self.y_test
+        else:
+            self.y = np.array(self.df[self.y_column])
+            return self.y
+
+    def create_eval_set(self):
+        # refactor into get_X,y
+        self.eval_set = [(self.X_train, self.y_train), (self.X_test, self.y_test)]
+
+    ### machine learning
 
     def create_model(self, method=None, model_params=None):
         if method is not None:
@@ -165,81 +198,165 @@ class ML(object):
 
     def resample(self):
         self.sampler = SMOTETomek(n_jobs=-1)
-        self.X, self.y = self.sampler.fit_sample(self.X, self.y)
+        self.X_train, self.y_train = self.sampler.fit_sample(self.X_train, self.y_train)
 
-    def cross_val(self, scoring=None, cv=4, weight=None, eval_metric=None, group=None):
-        if scoring is not None:
-            self.metric = scoring
+    def cross_val(self, metric=None, cv=4, weight=None, eval_metric=None, eval_set=None, group=None):
+        if metric is not None:
+            self.metric = metric
 
         if weight is not None:
             self.weight = weight
             self.sample_weight = np.array(self.df[weight])
-        else:
-            self.sample_weight = None
 
         if eval_metric is not None:
             self.eval_metric = eval_metric
-        else:
-            self.eval_metric = 'error'
+
+        if eval_set is not None:
+            self.eval_set = eval_set
 
         if group is not None:
             groups = self.df[group]
         else:
             groups = None
 
-        self.cross_vals = model_selection.cross_val_score(self.model, self.X, self.y, scoring=self.metric, cv=cv,
-                                                          groups=groups,
+        self.cross_vals = model_selection.cross_val_score(self.model, self.X_train, self.y_train, scoring=self.metric,
+                                                          cv=cv, groups=groups, n_jobs=-1,
                                                           fit_params={'sample_weight': self.sample_weight,
-                                                                      'eval_metric': self.eval_metric}, n_jobs=-1)
+                                                                      'eval_metric': self.eval_metric,
+                                                                      'eval_set': self.eval_set,
+                                                                      'verbose': False})
         return self.cross_vals
 
-    def grid_search(self, param_grid, scoring=None, cv=4, weight=None, eval_metric=None):
-        if scoring is not None:
-            self.metric = scoring
+    def grid_search(self, params, metric=None, cv=4, weight=None, eval_metric=None, eval_set=None):
+        # refactor with random_search
+        if metric is not None:
+            self.metric = metric
 
         if weight is not None:
             self.weight = weight
             self.sample_weight = np.array(self.df[weight])
-        else:
-            self.sample_weight = None
 
         if eval_metric is not None:
             self.eval_metric = eval_metric
-        else:
-            self.eval_metric = 'error'
 
-        grid_search_clf = model_selection.GridSearchCV(self.model, param_grid=param_grid, scoring=scoring, cv=cv,
-                                       fit_params={'sample_weight': self.sample_weight, 'eval_metric': self.eval_metric},
+        if eval_set is not None:
+            self.eval_set = eval_set
+
+        self.model_grid_search = model_selection.GridSearchCV(self.model, param_grid=params, scoring=self.metric, cv=cv,
+                                       fit_params={'sample_weight': self.sample_weight,
+                                                   'eval_metric': self.eval_metric,
+                                                   'eval_set': self.eval_set,
+                                                   'verbose': False},
                                        n_jobs=-1)
 
-    def train(self, weight=None, eval_metric=None):
+    def random_search(self, params, n_iter, metric=None, cv=4, weight=None, eval_metric=None, eval_set=None):
+        # add eval_sets
+        if metric is not None:
+            self.metric = metric
+
         if weight is not None:
             self.weight = weight
             self.sample_weight = np.array(self.df[weight])
-        else:
-            self.sample_weight = None
 
         if eval_metric is not None:
             self.eval_metric = eval_metric
-        else:
-            self.eval_metric = 'error'
 
-        self.model.fit(self.X, self.y, sample_weight=self.sample_weight, eval_metric=self.eval_metric)
+        if eval_set is not None:
+            self.eval_set = eval_set
 
-        self.feature_importances = pd.DataFrame([self.feature_columns.keys(), self.model.feature_importances_],
-                                           index=['feature', 'importance']).T.sort_values(by='importance',
-                                                                                          ascending=False)
+        self.model_random_search = model_selection.RandomizedSearchCV(self.model, param_distributions=params, n_iter=n_iter, scoring=self.metric,
+                                           fit_params={'sample_weight': self.sample_weight,
+                                                       'eval_metric': self.eval_metric,
+                                                       'eval_set': self.eval_set,
+                                                       'verbose': False},
+                                           n_jobs=-1, cv=cv, error_score=-1)
+
+    def train(self, weight=None, eval_metric=None, eval_set=None, stop_after=None):
+        if weight is not None:
+            self.weight = weight
+            self.sample_weight = np.array(self.df[weight])
+
+        if eval_metric is not None:
+            self.eval_metric = eval_metric
+
+        if eval_set is not None:
+            self.eval_set = eval_set
+
+        self.model.fit(self.X_train, self.y_train, sample_weight=self.sample_weight, eval_metric=self.eval_metric,
+                       eval_set=self.eval_set, early_stopping_rounds=stop_after, verbose=False)
+
+        self.feature_importances = pd.DataFrame({'feature': list(self.feature_columns.keys()),
+                                                 'importance': self.model.feature_importances_}).sort_values(by='importance', ascending=False)
+
         return self.feature_importances
 
     def score(self):
-        self.y_prob = self.model.predict_proba(self.X)
-        self.y_pred = self.model.predict(self.X)
+        self.y_prob = self.model.predict_proba(self.X_test)
+        self.y_pred = self.model.predict(self.X_test)
+
+    ### plotting
+
+    def plot_learning_curve(self, columns=['train', 'test']):
+        try:
+            errors_dict = self.model.evals_result()
+            errors = pd.concat([pd.DataFrame(errors_dict['validation_' + str(i)]) for i in range(len(errors_dict))],
+                               axis=1, keys=columns)
+            errors.plot()
+        except AttributeError:
+            # takes too long
+            skplt.plot_learning_curve(self.model, self.X_train, self.y_train, n_jobs=-1)
+        plt.show()
+
+    def plot_feature_importances(self):
+        # feature names not working
+        # skplt.plot_feature_importances(self.model, feature_names=None, max_num_features=20)
+        xgb.plot_importance(self.model, importance_type='weight')
+        xgb.plot_importance(self.model, importance_type='cover')
+        xgb.plot_importance(self.model, importance_type='gain')
+        plt.show()
+
+    def plot_confusion_matrix(self, normalize=True):
+        # add thresholding
+        skplt.plot_confusion_matrix(self.y_test, self.y_pred, normalize=normalize)
+        plt.show()
+
+    def plot_roc_auc(self):
+        # only for binary classification
+        if self.n_classes <= 2:
+            skplt.plot_roc_curve(self.y_test, self.y_prob)
+            plt.show()
+            # maybe implement weighted roc curve, auc score:
+            # print(metrics.roc_auc_score(self.y_test, self.y_pred, average='macro', sample_weight=None))
+
+    def plot_precision_recall(self):
+        skplt.plot_precision_recall_curve(self.y_test, self.y_prob)
+        plt.show()
+
+    def plot_ks_statistic(self):
+        # not working
+        skplt.plot_ks_statistic(self.y_test, self.y_prob)
+        plt.show()
 
     def describe(self):
         from IPython.display import display
 
-        if self.df:
-            self.df.describe()
+        if self.df is not None:
+            display(self.df.describe())
 
-        if self.model:
-            print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+        # if self.model is not None:
+        #     print("Accuracy: %0.2f (+/- %0.2f)" % (scores.mean(), scores.std() * 2))
+
+        if self.cross_vals is not None:
+            print(self.cross_vals)
+
+        if self.y_prob is not None:
+            if self.method == 'classification':
+                self.plot_confusion_matrix()
+                self.plot_roc_auc()
+                self.plot_precision_recall()
+                # self.plot_ks_statistic()
+                self.plot_feature_importances()
+
+        if self.eval_set is not None:
+            self.plot_learning_curve()
+

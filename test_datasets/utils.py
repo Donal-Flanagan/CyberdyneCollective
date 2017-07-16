@@ -5,12 +5,12 @@ import joblib
 
 
 num_features = 21 #len(training_data.columns)-4
-x_columns = ['feature'+str(i) for i in range(1,num_features)] + ['era_int']
+x_columns = ['feature'+str(i) for i in range(1,num_features+1)] #+ ['era_int']
 y_column = 'target'
 
 drop_dict = {}
 replace_dict = {}
-convert_dict = {'created': pd.to_datetime,
+convert_dict = {'target': pd.to_datetime,
                      'planned_installation_time': pd.to_numeric,
                      'status_type': pd.to_numeric}
 
