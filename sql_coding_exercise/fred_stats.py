@@ -5,7 +5,7 @@
 Retrieve statistics from the FRED api
 
 Usage:
-    fred_stats.py [--host=HOST] --user=USER --password=PASSWORD [-n -f -c -s]
+    fred_stats.py [--host=HOST] --user=USER --password=PASSWORD --api_key=API_KEY [-n -f -c -s]
     fred_stats.py (-h | --help)
     fred_stats.py (-v | --version)
 
@@ -13,6 +13,7 @@ Options:
   --host=HOST                   Database hostname.
   -u --user=USER                Your Postgres username
   -p --password=PASSWORD        Your Postgres password.
+  -a --api_key=API_KEY          Your FRED api key
   -h --help                     Show this screen.
   -v --version                  Show version.
 
@@ -30,6 +31,7 @@ import sys
 import logging
 import re
 import psycopg2
+import requests
 
 from docopt import docopt
 
@@ -37,7 +39,7 @@ from pprint import pprint as pp
 
 
 logger = logging.getLogger('fred_stats')
-__version__= '0.0.1'
+__version__ = '0.0.1'
 
 
 def main():
@@ -46,12 +48,20 @@ def main():
     host_name = args.get('--host')
     user = args.get('--user')
     password = args.get('--password')
+    api_key = args.get('--api_key')
     db_name = 'testpython'
+
+    fred_url = 'https://api.stlouisfed.org/fred/series/search?api_key={}&search_text=canada'
 
     if host_name:
         host = host_name
     else:
         host = 'localhost'
+
+    if api_key:
+        key = api_key
+    else:
+        key = '01af77900eb060649a7c504ee0705b4d'
 
     try:
 
@@ -60,8 +70,22 @@ def main():
         print('password:', password)
         print('db_name:', db_name)
 
+        print(fred_url)
+        print(key)
+        print('.................................')
+        print(fred_url.format(key))
+
         logging.basicConfig(level=logging.DEBUG)
         logger.info('starting fred_stats')
+
+
+
+
+        '''
+        req = requests.post(fred_url % key)
+        req.raise_for_status()
+        data = req.json()
+
 
         connect_str = "dbname={db_name} user={user} host={host} password={password}".format(
             db_name=db_name, user=user, host=host, password=password
@@ -77,6 +101,7 @@ def main():
         cursor.execute("""SELECT * from tutorials""")
         rows = cursor.fetchall()
         print(rows)
+        '''
 
 
 
