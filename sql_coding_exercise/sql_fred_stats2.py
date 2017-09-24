@@ -43,6 +43,7 @@ from fredapi import Fred
 from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, MetaData
 from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
+import io
 
 
 logger = logging.getLogger('fred_stats')
@@ -108,27 +109,21 @@ def main():
         frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
         fred_data = pd.concat(frames, axis=1)
 
-        # Insert the data into an SQL table
-        # fred_data.to_sql(name=table_name, con=engine, if_exists='replace', index=True, index_label='timestamp')
 
-        # If the table does not already exist, create it.
+        # Insert
+        buffer = io.StringIO()
+        fred_data.to_csv(buffer)
 
-        metadata = MetaData(engine)
-        fred_table = Table(table_name,
-                           metadata,
-                           Column('timestamp', DateTime),
-                           Column('gdp', Numeric),
-                           Column('umcsent', Numeric),
-                           Column('unrate', Numeric))
-        if not engine.dialect.has_table(engine, table_name):
-            metadata.create_all()
-
-        # Insert the data
-        conn = engine.connect()
-        for index, row in fred_data.iterrows():
-            ins = fred_table.insert().values(timestamp=index, gdp=row[0], umcsent=row[1], unrate=row[2])
-            conn.execute(ins)
-
+        copy_query = (
+            """CREATE TABLE :table_name (
+                 timestamp timestamp,
+                 gdp numeric,
+                 umcsent numeric,
+                 unrate numeric
+                 );
+               COPY :table_name FROM buffer DELIMITER ';' CSV HEADER
+               """)
+        engine.execute(copy_query, table_name=table_name)
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = text(
@@ -136,7 +131,7 @@ def main():
                FROM fred_data
                WHERE timestamp >= :start_date and timestamp <= :end_date
                GROUP BY year
-               ORDER BY year"""
+               ORDER BY year;"""
         )
         result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
 

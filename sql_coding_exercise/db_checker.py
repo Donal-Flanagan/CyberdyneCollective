@@ -62,7 +62,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
     engine = create_engine(db_connection)
     if not database_exists(engine.url):
         try:
-            logger('Database created: %s', db_name)
+            logger.info('Database created: %s', db_name)
             create_database(engine.url)
 
         except Exception as exc:
@@ -123,7 +123,7 @@ def main():
                   Column('umcsent', Decimal),
                   Column('unrate', Decimal),
             metadata.create_all()
-            logger('Database created: %s', db_name)
+            logger.info('Database created: %s', db_name)
 
         # Insert the data
         conn = engine.connect()
