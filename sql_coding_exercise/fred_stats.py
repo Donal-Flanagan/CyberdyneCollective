@@ -30,10 +30,8 @@ Additional options:
                                 Default = 5432
 """
 
-# fixme: Is it best practice to separate the imports into
 import sys
 import logging
-import requests
 import pandas as pd
 from fredapi import Fred
 from sqlalchemy import create_engine, text
@@ -98,27 +96,22 @@ def main():
         # fixme: add option to replace or append here depending on intitial or incremental load type
         fred_data.to_sql(name='fred_data', con=engine, if_exists='replace', index=True, index_label='timestamp')
 
-        # '1980-01-01'
-        # '2015-12-31'
-        print('start_date:',start_date)
-        print('type:', type(start_date))
-
-        # Aggregate the average unemployment rate per year
-        unemployment_query = """
-            SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate)
-            FROM fred_data
-            where timestamp >= :start_date and timestamp <= :end_date
-            GROUP BY year
-            ORDER BY year
-        """.format(start_date=start_date, end_date=end_date)
-
-        result = engine.execute(unemployment_query, {'mv': start_date, 'ml': end_date})
+        # Query the SQL table for the average unemployment rate.
+        unemployment_query = text(
+            'SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate) '
+            'FROM fred_data '
+            'WHERE timestamp >= :start_date and timestamp <= :end_date '
+            'GROUP BY year '
+            'ORDER BY year'
+        )
+        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
 
         df = pd.DataFrame(result.fetchall())
         df.columns = result.keys()
         df.set_index('year', inplace=True)
 
-        print('The average rate of unemployment in the USA for each year between 1980 and 2015 is as follows:')
+        print('The average rate of unemployment in the USA for each year between %s and %s is as follows:' %
+              (start_date, end_date))
         print(df)
 
     except KeyboardInterrupt:
