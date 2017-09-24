@@ -1,42 +1,44 @@
 # -*- coding: utf-8 -*-
 
-#fixme removed redundant args
 """
 Retrieve statistics from the FRED api
 
 Usage:
-    fred_stats.py --user=USER --password=PASSWORD [--host=HOST] [--api_key=API_KEY] [--database=DATABASE] [--port=PORT]
+    fred_stats.py --user=USER --password=PASSWORD [--start=START] [--end=END] [--host=HOST] [--api_key=API_KEY] [--database=DATABASE] [--port=PORT]
     fred_stats.py (-h | --help)
     fred_stats.py (-v | --version)
 
 Options:
-    -u --user=USER                Your Postgres username.
-    -p --password=PASSWORD        Your Postgres password.
-    --host=HOST                   Database hostname. Default = 'localhost'.
-    -a --api_key=API_KEY          Your FRED api key.
-                                  Default = Dónal Flanagan's Fred API key.
-    -d --database=DATABASE        The name of the database in which you wish to store the Fred data.
-                                  If the database does not exist it will be created. Default = 'fred_db'.
-    --port=PORT                   The Postgres port. Default = 5432
-    -h --help                     Show this screen.
-    -v --version                  Show version.
+    -u --user=USER              Your Postgres username.
+    -p --password=PASSWORD      Your Postgres password.
+    -h --help                   Show this screen.
+    -v --version                Show version.
 
+Additional options:
+    -s --start=START            yyyy-mm-dd. Start date for average unemployment rate aggregation.
+                                Default = 1980-01-01
+    -e --end=END                yyyy-mm-dd. End date for average unemployment rate aggregation.
+                                Default = 2015-12-31
+    --host=HOST                 Database hostname.
+                                Default = 'localhost'.
+    -a --api_key=API_KEY        Your FRED api key.
+                                Default = Fred API key of Dónal Flanagan.
+    -d --database=DATABASE      The name of the database in which you wish to store the Fred data.
+                                If the database does not exist it will be created.
+                                Default = 'fred_db'.
+    --port=PORT                 The Postgres port.
+                                Default = 5432
 """
 
-#fixme: remove redundant imports
+# fixme: Is it best practice to separate the imports into
 import sys
 import logging
-import re
-import psycopg2
 import requests
 import pandas as pd
 from fredapi import Fred
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 from sqlalchemy_utils import database_exists, create_database
-
 from docopt import docopt
-
-from pprint import pprint as pp
 
 
 logger = logging.getLogger('fred_stats')
@@ -72,64 +74,58 @@ def main():
     host = args.get('--host') if args.get('--host') else 'localhost'
     api_key = args.get('--api_key') if args.get('--api_key') else '01af77900eb060649a7c504ee0705b4d'
     db_name = args.get('--database') if args.get('--database') else 'fred_db'
-    port = args.get('--port') if args.get('--port') else 5432
+    port = int(args.get('--port')) if args.get('--port') else 5432
+    start_date = args.get('--start') if args.get('--start') else '1980-01-01'
+    end_date = args.get('--end') if args.get('--end') else '2015-12-31'
 
+    # Instantiate the sqlalchemy database interface #fixme: is 'interface' the correct word?
     engine = get_db_engine(db_name, user, password, host, port)
 
-    print('\n---------------------------------------')
-    print('db created')
-    print('---------------------------------------\n')
-
-
     try:
-
         logging.basicConfig(level=logging.DEBUG)
         logger.info('starting fred_stats')
 
+        # Retrieve the data from the FRED api
         fred = Fred(api_key=api_key)
-        gdp = fred.get_series('GDPC1').rename('gdp')  # ('GDP')
-        um_cust_sent_index = fred.get_series('UMCSENT').rename('umcsent')  # ('UM customer sentiment index')
-        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('unrate')  # ('US  Civilian Unemployment Rate')
+        gdp = fred.get_series('GDPC1').rename('gdp')
+        um_cust_sent_index = fred.get_series('UMCSENT').rename('umcsent')
+        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('unrate')
 
         frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
         fred_data = pd.concat(frames, axis=1)
 
-        print('\n---------------------------------------')
-        print('data retrieved')
-        print('---------------------------------------\n')
-
-        # fixme: add option to replace or append here depending on load type
-
+        # Insert the data into an SQL table
+        # fixme: add option to replace or append here depending on intitial or incremental load type
         fred_data.to_sql(name='fred_data', con=engine, if_exists='replace', index=True, index_label='timestamp')
 
-        print('\n---------------------------------------')
-        print('data inserted')
-        print('---------------------------------------\n')
+        # '1980-01-01'
+        # '2015-12-31'
+        print('start_date:',start_date)
+        print('type:', type(start_date))
 
+        # Aggregate the average unemployment rate per year
         unemployment_query = """
-            SELECT EXTRACT(YEAR from timestamp) as year, avg(unrate)
+            SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate)
             FROM fred_data
-            where timestamp >= '1980-01-01' and timestamp <= '2015-12-31'
+            where timestamp >= :start_date and timestamp <= :end_date
             GROUP BY year
             ORDER BY year
-        """
+        """.format(start_date=start_date, end_date=end_date)
 
-        result_set = engine.execute(unemployment_query)
+        result = engine.execute(unemployment_query, {'mv': start_date, 'ml': end_date})
 
+        df = pd.DataFrame(result.fetchall())
+        df.columns = result.keys()
+        df.set_index('year', inplace=True)
 
-        #for r in result_set:
-        #    print(r)
-
-
-
-
+        print('The average rate of unemployment in the USA for each year between 1980 and 2015 is as follows:')
+        print(df)
 
     except KeyboardInterrupt:
         logger.info('Stopping fred_stats')
     except Exception as exc:
         logger.exception('Got exception %r', exc)
         return exc
-
 
 if __name__ == '__main__':
     sys.exit(main())
