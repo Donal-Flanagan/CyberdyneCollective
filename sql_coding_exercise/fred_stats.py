@@ -83,10 +83,6 @@ def main():
     start_date = '{start_year}-01-01'.format(start_year=start_year)
     end_date = '{end_year}-12-31'.format(end_year=end_year)
 
-    print('\n--------------------------------')
-    print('start_date:', start_date)
-    print('end_date:', end_date)
-
     # Instantiate the sqlalchemy database interface
     engine = get_db_engine(db_name, user, password, host, port)
 
