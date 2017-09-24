@@ -5,7 +5,7 @@
 Retrieve statistics from the FRED api
 
 Usage:
-    fred_stats.py [--host=HOST] --user=USER --password=PASSWORD --api_key=API_KEY [-n -f -c -s]
+    fred_stats.py --user=USER --password=PASSWORD [--host=HOST] [--api_key=API_KEY] [-n -f -c -s]
     fred_stats.py (-h | --help)
     fred_stats.py (-v | --version)
 
@@ -32,6 +32,8 @@ import logging
 import re
 import psycopg2
 import requests
+import pandas as pd
+from fredapi import Fred
 
 from docopt import docopt
 
@@ -51,7 +53,7 @@ def main():
     api_key = args.get('--api_key')
     db_name = 'testpython'
 
-    fred_url = 'https://api.stlouisfed.org/fred/series/search?api_key={}&search_text=canada'
+
 
     if host_name:
         host = host_name
@@ -64,29 +66,28 @@ def main():
         key = '01af77900eb060649a7c504ee0705b4d'
 
     try:
-
         print('host:', host)
         print('user:', user)
         print('password:', password)
         print('db_name:', db_name)
 
-        print(fred_url)
-        print(key)
-        print('.................................')
-        print(fred_url.format(key))
-
         logging.basicConfig(level=logging.DEBUG)
         logger.info('starting fred_stats')
 
+        print('ņ---------------------------------------')
+
+        fred = Fred(api_key=key)
+        gdp = fred.get_series('GDPC1').rename('GDP')
+        um_customer_sentiment_index = fred.get_series('UMCSENT').rename('UM customer sentiment index')
+        us_civilian_unemployment_rate = fred.get_series('UNRATE').rename('US  Civilian Unemployment Rate')
 
 
+        frames = [gdp, um_customer_sentiment_index, us_civilian_unemployment_rate]
+
+        data = pd.concat(frames, axis=1)
+        print(data)
 
         '''
-        req = requests.post(fred_url % key)
-        req.raise_for_status()
-        data = req.json()
-
-
         connect_str = "dbname={db_name} user={user} host={host} password={password}".format(
             db_name=db_name, user=user, host=host, password=password
         )
