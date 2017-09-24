@@ -3,3 +3,5 @@ docopt
 psycopg2
 requests
 fredapi
+sqlalchemy
+sqlalchemy_utils

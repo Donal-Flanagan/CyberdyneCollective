@@ -53,8 +53,6 @@ def main():
     api_key = args.get('--api_key')
     db_name = 'testpython'
 
-
-
     if host_name:
         host = host_name
     else:
@@ -78,16 +76,12 @@ def main():
 
         fred = Fred(api_key=key)
         gdp = fred.get_series('GDPC1').rename('GDP')
-        um_customer_sentiment_index = fred.get_series('UMCSENT').rename('UM customer sentiment index')
-        us_civilian_unemployment_rate = fred.get_series('UNRATE').rename('US  Civilian Unemployment Rate')
+        um_cust_sent_index = fred.get_series('UMCSENT').rename('UM customer sentiment index')
+        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('US  Civilian Unemployment Rate')
 
+        frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
+        fred_data = pd.concat(frames, axis=1)
 
-        frames = [gdp, um_customer_sentiment_index, us_civilian_unemployment_rate]
-
-        data = pd.concat(frames, axis=1)
-        print(data)
-
-        '''
         connect_str = "dbname={db_name} user={user} host={host} password={password}".format(
             db_name=db_name, user=user, host=host, password=password
         )
@@ -97,12 +91,23 @@ def main():
         # create a psycopg2 cursor that can execute queries
         cursor = conn.cursor()
         # create a new table with a single column called "name"
-        cursor.execute("""CREATE TABLE tutorials (name char(40));""")
+        cursor.execute("""
+            CREATE TABLE federal_reserve_data
+            (
+                gdp DECIMAL,
+                um_cust_sent_index DECIMAL,
+                us_civ_unemploy_rate DECIMAL
+            );
+                  """
+        )
+
+        for row in fred_data.rows():
+            print(row)
         # run a SELECT statement - no data in there, but we can try it
-        cursor.execute("""SELECT * from tutorials""")
+        cursor.execute("""SELECT * from federal_reserve_data""")
         rows = cursor.fetchall()
         print(rows)
-        '''
+
 
 
 
