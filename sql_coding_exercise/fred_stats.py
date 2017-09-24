@@ -5,25 +5,22 @@
 Retrieve statistics from the FRED api
 
 Usage:
-    fred_stats.py --user=USER --password=PASSWORD [--host=HOST] [--api_key=API_KEY] [-n -f -c -s]
+    fred_stats.py --user=USER --password=PASSWORD [--host=HOST] [--api_key=API_KEY] [--database=DATABASE] [--port=PORT]
     fred_stats.py (-h | --help)
     fred_stats.py (-v | --version)
 
 Options:
-  --host=HOST                   Database hostname.
-  -u --user=USER                Your Postgres username
-  -p --password=PASSWORD        Your Postgres password.
-  -a --api_key=API_KEY          Your FRED api key
-  -h --help                     Show this screen.
-  -v --version                  Show version.
+    -u --user=USER                Your Postgres username.
+    -p --password=PASSWORD        Your Postgres password.
+    --host=HOST                   Database hostname. Default = 'localhost'.
+    -a --api_key=API_KEY          Your FRED api key.
+                                  Default = Dónal Flanagan's Fred API key.
+    -d --database=DATABASE        The name of the database in which you wish to store the Fred data.
+                                  If the database does not exist it will be created. Default = 'fred_db'.
+    --port=PORT                   The Postgres port. Default = 5432
+    -h --help                     Show this screen.
+    -v --version                  Show version.
 
-Additional options:
-  -n, --remove-non-fredsters        Remove users which do not have an @fredknows.it email
-                                    address from the fred.ava_projects collection.
-  -f, --deactivate-feedbackforms    Deactivate email notifications and remove notifications
-                                    email address from feedback forms.
-  -c, --remove-customer-feedback    Set feedback fields to null in all games.
-  -s, --remove-statistics           Remove all documents from statistics collection.
 """
 
 #fixme: remove redundant imports
@@ -34,6 +31,8 @@ import psycopg2
 import requests
 import pandas as pd
 from fredapi import Fred
+from sqlalchemy import create_engine
+from sqlalchemy_utils import database_exists, create_database
 
 from docopt import docopt
 
@@ -44,77 +43,91 @@ logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
 
 
+def get_db_engine(db_name, user, password, host, port=5432):
+
+    db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
+        database=db_name,
+        user=user,
+        password=password,
+        host=host,
+        port=port
+    )
+
+    engine = create_engine(db_connection)
+    if not database_exists(engine.url):
+        try:
+            create_database(engine.url)
+
+        except Exception as exc:
+            logger.exception('Could not create database. \nException: %r', exc)
+            return exc
+    return engine
+
+
 def main():
     args = docopt(__doc__, version='fki-missing-answers %s' % __version__)
 
-    host_name = args.get('--host')
     user = args.get('--user')
     password = args.get('--password')
-    api_key = args.get('--api_key')
-    db_name = 'testpython'
+    host = args.get('--host') if args.get('--host') else 'localhost'
+    api_key = args.get('--api_key') if args.get('--api_key') else '01af77900eb060649a7c504ee0705b4d'
+    db_name = args.get('--database') if args.get('--database') else 'fred_db'
+    port = args.get('--port') if args.get('--port') else 5432
 
-    if host_name:
-        host = host_name
-    else:
-        host = 'localhost'
+    engine = get_db_engine(db_name, user, password, host, port)
 
-    if api_key:
-        key = api_key
-    else:
-        key = '01af77900eb060649a7c504ee0705b4d'
+    print('\n---------------------------------------')
+    print('db created')
+    print('---------------------------------------\n')
+
 
     try:
-        print('host:', host)
-        print('user:', user)
-        print('password:', password)
-        print('db_name:', db_name)
 
         logging.basicConfig(level=logging.DEBUG)
         logger.info('starting fred_stats')
 
-        print('ņ---------------------------------------')
-
-        fred = Fred(api_key=key)
-        gdp = fred.get_series('GDPC1').rename('GDP')
-        um_cust_sent_index = fred.get_series('UMCSENT').rename('UM customer sentiment index')
-        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('US  Civilian Unemployment Rate')
+        fred = Fred(api_key=api_key)
+        gdp = fred.get_series('GDPC1').rename('gdp')  # ('GDP')
+        um_cust_sent_index = fred.get_series('UMCSENT').rename('umcsent')  # ('UM customer sentiment index')
+        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('unrate')  # ('US  Civilian Unemployment Rate')
 
         frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
         fred_data = pd.concat(frames, axis=1)
 
-        connect_str = "dbname={db_name} user={user} host={host} password={password}".format(
-            db_name=db_name, user=user, host=host, password=password
-        )
+        print('\n---------------------------------------')
+        print('data retrieved')
+        print('---------------------------------------\n')
 
-        # use our connection values to establish a connection
-        conn = psycopg2.connect(connect_str)
-        # create a psycopg2 cursor that can execute queries
-        cursor = conn.cursor()
-        # create a new table with a single column called "name"
-        cursor.execute("""
-            CREATE TABLE federal_reserve_data
-            (
-                gdp DECIMAL,
-                um_cust_sent_index DECIMAL,
-                us_civ_unemploy_rate DECIMAL
-            );
-                  """
-        )
+        # fixme: add option to replace or append here depending on load type
 
-        for row in fred_data.rows():
-            print(row)
-        # run a SELECT statement - no data in there, but we can try it
-        cursor.execute("""SELECT * from federal_reserve_data""")
-        rows = cursor.fetchall()
-        print(rows)
+        fred_data.to_sql(name='fred_data', con=engine, if_exists='replace', index=True, index_label='timestamp')
+
+        print('\n---------------------------------------')
+        print('data inserted')
+        print('---------------------------------------\n')
+
+        unemployment_query = """
+            SELECT EXTRACT(YEAR from timestamp) as year, avg(unrate)
+            FROM fred_data
+            where timestamp >= '1980-01-01' and timestamp <= '2015-12-31'
+            GROUP BY year
+            ORDER BY year
+        """
+
+        result_set = engine.execute(unemployment_query)
+
+
+        #for r in result_set:
+        #    print(r)
+
 
 
 
 
     except KeyboardInterrupt:
-        logger.info('stopping fred_stats')
+        logger.info('Stopping fred_stats')
     except Exception as exc:
-        logger.exception('got exception %r', exc)
+        logger.exception('Got exception %r', exc)
         return exc
 
 

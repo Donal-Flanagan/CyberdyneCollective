@@ -69,25 +69,22 @@ def main():
         print('data inserted')
         print('---------------------------------------\n')
 
-        query = """SELECT * FROM fred_data"""
+        unemployment_query = """
+            SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate)
+            FROM fred_data
+            where timestamp >= '1980-01-01' and timestamp <= '2015-12-31'
+            GROUP BY year
+            ORDER BY year
+        """
 
-        result_set = engine.execute(query, )
-        for row in result_set:
-            print(row)
+        result = engine.execute(unemployment_query)
 
-        '''
-        query = """SELECT gdp FROM fred_data"""
+        df = pd.DataFrame(result.fetchall())
+        df.columns = result.keys()
+        df.set_index('year', inplace=True)
 
-        result_set = engine.execute(query,)
-        rows = result_set.fetchall()
-        print(rows)
-        '''
-
-
-
-
-        # inserted = pd.read_sql('SELECT * from %s' % (db_name), engine)
-
+        print('The average rate of unemployment in the USA for each year between 1980 and 2015 is as follows:')
+        print(df)
 
 
     except KeyboardInterrupt:
