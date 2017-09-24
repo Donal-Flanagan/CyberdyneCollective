@@ -15,10 +15,10 @@ Options:
     -v --version                Show version.
 
 Additional options:
-    -s --start=START            yyyy-mm-dd. Start date for average unemployment rate aggregation.
-                                Default = 1980-01-01
-    -e --end=END                yyyy-mm-dd. End date for average unemployment rate aggregation.
-                                Default = 2015-12-31
+    -s --start=START            yyyy. Start year for average unemployment rate aggregation.
+                                Default = 1980
+    -e --end=END                yyyy. End year for average unemployment rate aggregation.
+                                Default = 2015
     --host=HOST                 Database hostname.
                                 Default = 'localhost'.
     -a --api_key=API_KEY        Your FRED api key.
@@ -56,6 +56,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
     engine = create_engine(db_connection)
     if not database_exists(engine.url):
         try:
+            logger('database created: %s', db_name)
             create_database(engine.url)
 
         except Exception as exc:
@@ -65,7 +66,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
 
 
 def main():
-    args = docopt(__doc__, version='fki-missing-answers %s' % __version__)
+    args = docopt(__doc__, version='fred_stats %s' % __version__)
 
     user = args.get('--user')
     password = args.get('--password')
@@ -73,10 +74,13 @@ def main():
     api_key = args.get('--api_key') if args.get('--api_key') else '01af77900eb060649a7c504ee0705b4d'
     db_name = args.get('--database') if args.get('--database') else 'fred_db'
     port = int(args.get('--port')) if args.get('--port') else 5432
-    start_date = args.get('--start') if args.get('--start') else '1980-01-01'
-    end_date = args.get('--end') if args.get('--end') else '2015-12-31'
+    start_year = args.get('--start') if args.get('--start') else '1980'
+    end_year = args.get('--end') if args.get('--end') else '2015'
 
-    # Instantiate the sqlalchemy database interface #fixme: is 'interface' the correct word?
+    start_date = '{start_year}-01-01'.format(start_year=start_year)
+    end_date = '{end_year}-12-31'.format(end_year=end_year)
+
+    # Instantiate the sqlalchemy database interface
     engine = get_db_engine(db_name, user, password, host, port)
 
     try:
@@ -93,7 +97,7 @@ def main():
         fred_data = pd.concat(frames, axis=1)
 
         # Insert the data into an SQL table
-        # fixme: add option to replace or append here depending on intitial or incremental load type
+        # fixme: add option to replace or append here depending on initial or incremental load type
         fred_data.to_sql(name='fred_data', con=engine, if_exists='replace', index=True, index_label='timestamp')
 
         # Query the SQL table for the average unemployment rate.
