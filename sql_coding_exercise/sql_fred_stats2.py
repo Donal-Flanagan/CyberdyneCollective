@@ -114,14 +114,14 @@ def main():
         buffer = io.StringIO()
         fred_data.to_csv(buffer)
 
-        copy_query = (
+        copy_query = text(
             """CREATE TABLE :table_name (
                  timestamp timestamp,
                  gdp numeric,
                  umcsent numeric,
                  unrate numeric
-                 );
-               COPY :table_name FROM buffer DELIMITER ';' CSV HEADER
+                 )
+               COPY :table_name FROM buffer DELIMITER ';' CSV HEADER;
                """)
         engine.execute(copy_query, table_name=table_name)
 
