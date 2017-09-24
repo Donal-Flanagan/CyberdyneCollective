@@ -43,27 +43,6 @@ logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
 
 
-def get_db_engine(db_name, user, password, host, port=5432):
-
-    db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
-        database=db_name,
-        user=user,
-        password=password,
-        host=host,
-        port=port
-    )
-
-    engine = create_engine(db_connection)
-    if not database_exists(engine.url):
-        try:
-            create_database(engine.url)
-
-        except Exception as exc:
-            logger.exception('Could not create database. \nException: %r', exc)
-            return exc
-    return engine
-
-
 def main():
     args = docopt(__doc__, version='fki-missing-answers %s' % __version__)
 
@@ -74,43 +53,40 @@ def main():
     db_name = args.get('--database') if args.get('--database') else 'fred_db'
     port = args.get('--port') if args.get('--port') else 5432
 
-    engine = get_db_engine(db_name, user, password, host, port)
-
-    print('\n---------------------------------------')
-    print('db created')
-    print('---------------------------------------\n')
-
+    db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
+        database=db_name,
+        user=user,
+        password=password,
+        host=host,
+        port=port
+    )
 
     try:
 
-        logging.basicConfig(level=logging.DEBUG)
-        logger.info('starting fred_stats')
-
-        fred = Fred(api_key=api_key)
-        gdp = fred.get_series('GDPC1').rename('gdp')  # ('GDP')
-        um_cust_sent_index = fred.get_series('UMCSENT').rename('umcsent')  # ('UM customer sentiment index')
-        us_civ_unemploy_rate = fred.get_series('UNRATE').rename('unrate')  # ('US  Civilian Unemployment Rate')
-
-        frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
-        fred_data = pd.concat(frames, axis=1)
-
-        print('\n---------------------------------------')
-        print('data retrieved')
-        print('---------------------------------------\n')
-
-        # fixme: add option to replace or append here depending on load type
-
-        fred_data.to_sql(name='fred_data', con=engine, if_exists='replace', index=True, index_name='date')
+        engine = create_engine(db_connection)
 
         print('\n---------------------------------------')
         print('data inserted')
         print('---------------------------------------\n')
 
-        result_set = engine.execute("""SELECT * FROM fred_data""")
-        for r in result_set:
-            print(r)
+        query = """SELECT * FROM fred_data"""
+
+        result_set = engine.execute(query, )
+        for row in result_set:
+            print(row)
+
+        '''
+        query = """SELECT gdp FROM fred_data"""
+
+        result_set = engine.execute(query,)
+        rows = result_set.fetchall()
+        print(rows)
+        '''
 
 
+
+
+        # inserted = pd.read_sql('SELECT * from %s' % (db_name), engine)
 
 
 
