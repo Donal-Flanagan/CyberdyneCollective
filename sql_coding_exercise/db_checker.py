@@ -71,6 +71,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
     return engine
 
 
+
 def main():
     args = docopt(__doc__, version='fred_stats %s' % __version__)
 
@@ -109,16 +110,26 @@ def main():
         fred_data = pd.concat(frames, axis=1)
 
         # Insert the data into an SQL table
-        fred_data.to_sql(name=table_name, con=engine, if_exists='replace', index=True, index_label='timestamp')
+        # fixme: add option to replace or append here depending on initial or incremental load type - update replace
+        # fred_data.to_sql(name=table_name, con=engine, if_exists=load_preference, index=True, index_label='timestamp')
 
-        INSERT
-        INTO
-        tablename(fieldname1, fieldname2, fieldname3)
-        VALUES(
-            UNNEST(ARRAY[1, 2, 3]),
-            UNNEST(ARRAY[100, 200, 300]),
-            UNNEST(ARRAY['a', 'b', 'c'])
-        );
+        # If the table does not already exist, create it.
+        if not engine.dialect.has_table(engine, table_name):
+            metadata = MetaData(engine)
+            Table(table_name,
+                  metadata,
+                  Column('date', Decimal),
+                  Column('gdp', Decimal),
+                  Column('umcsent', Decimal),
+                  Column('unrate', Decimal),
+            metadata.create_all()
+            logger('Database created: %s', db_name)
+
+        # Insert the data
+        conn = engine.connect()
+        for index, row in fred_data.iterrows()
+            ins = table_name.insert().values(date=row[0], gdp=row[1], umcsent=row[2], unrate=row[3])
+            conn.execute(ins)
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = text(
