@@ -113,14 +113,14 @@ def main():
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = text(
-            'SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate) '
-            'FROM fred_data '
-            'WHERE timestamp >= :start_date and timestamp <= :end_date '
-            'GROUP BY year '
-            'ORDER BY year'
+            """SELECT EXTRACT(YEAR from timestamp)::INT as year, avg(unrate)
+               FROM :t_name
+               WHERE timestamp >= :start_date and timestamp <= :end_date
+               GROUP BY year
+               ORDER BY year"""
         )
 
-        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
+        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date, t_name='%'+table_name)
 
         df = pd.DataFrame(result.fetchall())
         df.columns = result.keys()

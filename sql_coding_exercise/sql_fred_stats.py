@@ -129,16 +129,20 @@ def main():
             ins = fred_table.insert().values(timestamp=index, gdp=row[0], umcsent=row[1], unrate=row[2])
             conn.execute(ins)
 
+        print('\n----------------------------------')
+        print(MetaData)
+
+
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = text(
             """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
-               FROM fred_data
+               FROM 'blah_table'
                WHERE timestamp >= :start_date and timestamp <= :end_date
                GROUP BY year
                ORDER BY year"""
         )
-        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
+        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date, table_name=fred_table.name)
 
         df = pd.DataFrame(result.fetchall())
         df.columns = result.keys()
