@@ -42,6 +42,7 @@ from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, Me
 from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
 import io
+from time import time
 
 
 logger = logging.getLogger('fred_stats')
@@ -106,6 +107,8 @@ def main():
         fred_data.reset_index(level=0, inplace=True)
         fred_data = fred_data.to_dict('records')
 
+        t1 = time()
+
         # If the table does not already exist, create it.
         metadata = MetaData(engine)
         fred_table = Table(table_name,
@@ -121,27 +124,17 @@ def main():
         conn = engine.connect()
         conn.execute(fred_table.insert(), fred_data)
 
-
-
+        t2 = time()
+        print('time:', t2 - t1)
 
         # Query the SQL table for the average unemployment rate.
-        unemployment_query = text(
-            """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
-               FROM :t_name
-               WHERE timestamp >= :start_date and timestamp <= :end_date
-               GROUP BY year
-               ORDER BY year;"""
-        )
-
         unemployment_query = """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
-               FROM {t_name}
-               WHERE timestamp >= :start_date and timestamp <= :end_date
-               GROUP BY year
-               ORDER BY year;""".format(t_name=table_name)
+                                FROM {t_name}
+                                WHERE timestamp >= :start_date and timestamp <= :end_date
+                                GROUP BY year
+                                ORDER BY year;""".format(t_name=table_name)
 
-        unemployment_query = text(unemployment_query)
-
-        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
+        result = engine.execute(text(unemployment_query), start_date=start_date, end_date=end_date)
 
         df = pd.DataFrame(result.fetchall())
         df.columns = result.keys()

@@ -41,7 +41,7 @@ from fredapi import Fred
 from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, MetaData
 from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
-from time import time
+
 
 logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
@@ -101,7 +101,6 @@ def main():
         frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
         fred_data = pd.concat(frames, axis=1)
 
-        t1 = time()
         # If the table does not already exist, create it.
         metadata = MetaData(engine)
         fred_table = Table(table_name,
@@ -118,9 +117,6 @@ def main():
         for index, row in fred_data.iterrows():
             ins = fred_table.insert().values(timestamp=index, gdp=row[0], umcsent=row[1], unrate=row[2])
             conn.execute(ins)
-
-        t2 = time()
-        print('time:', t2 - t1)
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
