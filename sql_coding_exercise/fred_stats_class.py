@@ -39,14 +39,14 @@ import logging
 import pandas as pd
 from fredapi import Fred
 from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, MetaData
-from sqlalchemy_utils import database_exists, create_database
+# from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
 
 
 logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
 
-
+'''
 def get_db_engine(db_name, user, password, host, port=5432):
 
     db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
@@ -67,7 +67,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
             logger.exception('Could not create database. \nException: %r', exc)
             return exc
     return engine
-
+'''
 
 class FredStats:
     def __init__(self, api_key):
@@ -80,7 +80,7 @@ class FredStats:
             data_series = self.fred.get_series(series_name).rename(series_name)
             frames.append(data_series)
 
-        data = pd.concat(frames)
+        data = pd.concat(frames, axis=1)
         return data
 
 
