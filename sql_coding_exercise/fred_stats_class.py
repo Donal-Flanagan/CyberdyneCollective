@@ -39,14 +39,14 @@ import logging
 import pandas as pd
 from fredapi import Fred
 from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, MetaData
-# from sqlalchemy_utils import database_exists, create_database
+from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
 
 
 logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
 
-'''
+
 def get_db_engine(db_name, user, password, host, port=5432):
 
     db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
@@ -67,7 +67,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
             logger.exception('Could not create database. \nException: %r', exc)
             return exc
     return engine
-'''
+
 
 class FredStats:
     def __init__(self, api_key):
@@ -82,6 +82,28 @@ class FredStats:
 
         data = pd.concat(frames, axis=1)
         return data
+
+
+class DatabaseInterface:
+    def __init__(self, ):
+
+        # If the table does not already exist, create it.
+        metadata = MetaData(engine)
+        fred_table = Table(table_name,
+                           metadata,
+                           Column('timestamp', DateTime),
+                           Column('gdp', Numeric),
+                           Column('umcsent', Numeric),
+                           Column('unrate', Numeric))
+        if not engine.dialect.has_table(engine, table_name):
+            metadata.create_all()
+
+
+        # Insert the data
+        conn = engine.connect()
+        for index, row in fred_data.iterrows():
+            ins = fred_table.insert().values(timestamp=index, gdp=row[0], umcsent=row[1], unrate=row[2])
+            conn.execute(ins)
 
 
 def main():
@@ -104,6 +126,11 @@ def main():
         fred_stats = FredStats(api_key=api_key)
         data = fred_stats.retrieve_stats(series_names=series_names)
         print(data)
+
+
+
+
+
 
     except KeyboardInterrupt:
         logger.info('Stopping fred_stats')
