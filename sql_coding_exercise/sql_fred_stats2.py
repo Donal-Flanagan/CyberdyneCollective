@@ -4,7 +4,7 @@
 Retrieve statistics from the FRED api
 
 Usage:
-    fred_stats.py --user=USER --password=PASSWORD ( --initial | --incremental ) [--start=START]
+    fred_stats.py --user=USER --password=PASSWORD [--start=START]
                   [--end=END] [--database=DATABASE] [--table=TABLE]
                   [--host=HOST] [--api_key=API_KEY] [--port=PORT]
     fred_stats.py (-h | --help)
@@ -13,8 +13,6 @@ Usage:
 Options:
     -u --user=USER              Your Postgres username.
     -p --password=PASSWORD      Your Postgres password.
-    --initial                   Use initial loading.
-    --incremental               Use incremental loading.
     -h --help                   Show this screen.
     -v --version                Show version.
 
@@ -44,6 +42,7 @@ from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, Me
 from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
 import io
+from time import time
 
 
 logger = logging.getLogger('fred_stats')
@@ -61,6 +60,7 @@ def get_db_engine(db_name, user, password, host, port=5432):
     )
 
     engine = create_engine(db_connection)
+
     if not database_exists(engine.url):
         try:
             logger.info('Database created: %s', db_name)
@@ -85,11 +85,6 @@ def main():
     start_year = args.get('--start') if args.get('--start') else '1980'
     end_year = args.get('--end') if args.get('--end') else '2015'
 
-    if args.get('--initial'):
-        load_preference = 'replace'
-    elif args.get('--incremental'):
-        load_preference ='append'
-
     start_date = '{start_year}-01-01'.format(start_year=start_year)
     end_date = '{end_year}-12-31'.format(end_year=end_year)
 
@@ -108,32 +103,38 @@ def main():
 
         frames = [gdp, um_cust_sent_index, us_civ_unemploy_rate]
         fred_data = pd.concat(frames, axis=1)
+        fred_data.index.name = 'timestamp'
+        fred_data.reset_index(level=0, inplace=True)
+        fred_data = fred_data.to_dict('records')
 
+        t1 = time()
 
-        # Insert
-        buffer = io.StringIO()
-        fred_data.to_csv(buffer)
+        # If the table does not already exist, create it.
+        metadata = MetaData(engine)
+        fred_table = Table(table_name,
+                           metadata,
+                           Column('timestamp', DateTime),
+                           Column('gdp', Numeric),
+                           Column('umcsent', Numeric),
+                           Column('unrate', Numeric))
+        if not engine.dialect.has_table(engine, table_name):
+            metadata.create_all()
 
-        copy_query = (
-            """CREATE TABLE :table_name (
-                 timestamp timestamp,
-                 gdp numeric,
-                 umcsent numeric,
-                 unrate numeric
-                 );
-               COPY :table_name FROM buffer DELIMITER ';' CSV HEADER
-               """)
-        engine.execute(copy_query, table_name=table_name)
+        # Insert the data
+        conn = engine.connect()
+        conn.execute(fred_table.insert(), fred_data)
+
+        t2 = time()
+        print('time:', t2 - t1)
 
         # Query the SQL table for the average unemployment rate.
-        unemployment_query = text(
-            """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
-               FROM fred_data
-               WHERE timestamp >= :start_date and timestamp <= :end_date
-               GROUP BY year
-               ORDER BY year;"""
-        )
-        result = engine.execute(unemployment_query, start_date=start_date, end_date=end_date)
+        unemployment_query = """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
+                                FROM {t_name}
+                                WHERE timestamp >= :start_date and timestamp <= :end_date
+                                GROUP BY year
+                                ORDER BY year;""".format(t_name=table_name)
+
+        result = engine.execute(text(unemployment_query), start_date=start_date, end_date=end_date)
 
         df = pd.DataFrame(result.fetchall())
         df.columns = result.keys()
@@ -142,6 +143,8 @@ def main():
         print('The average rate of unemployment in the USA for each year between %s and %s is as follows:' %
               (start_date, end_date))
         print(df)
+
+
 
     except KeyboardInterrupt:
         logger.info('Stopping fred_stats')
