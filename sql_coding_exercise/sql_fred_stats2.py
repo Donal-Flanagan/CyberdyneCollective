@@ -41,8 +41,6 @@ from fredapi import Fred
 from sqlalchemy import create_engine, text, Table, Column, DateTime, Numeric, MetaData
 from sqlalchemy_utils import database_exists, create_database
 from docopt import docopt
-import io
-from time import time
 
 
 logger = logging.getLogger('fred_stats')
@@ -50,6 +48,16 @@ __version__ = '0.0.1'
 
 
 def get_db_engine(db_name, user, password, host, port=5432):
+    """
+    Return a sqlalchemy engine instance. If the database does not exist it will be created.
+
+    :param db_name: str
+    :param user:    str
+    :param password:    str
+    :param host:    str
+    :param port:    int
+    :return: sqlalchemy engine instance
+    """
 
     db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
         database=db_name,
@@ -72,9 +80,18 @@ def get_db_engine(db_name, user, password, host, port=5432):
     return engine
 
 
-def main():
-    args = docopt(__doc__, version='fred_stats %s' % __version__)
+def fred_stats(args):
+    """
+    Queries the Federal Reserve Economic Data api for the following three series of data:
+        - Real Gross Domestic Product (GDPC1)
+        - University of Michigan Customer Sentiment Index (UMCSENT)
+        - US Civilian Unemployment Rate (UNRATE)
+    Stores them into a postgres database.
+    Queries the database for the average unemployment rate per year for a given time period.
 
+    :param args: dict, the command line args passed by the user
+    :return:
+    """
     user = args.get('--user')
     password = args.get('--password')
     host = args.get('--host') if args.get('--host') else 'localhost'
@@ -107,8 +124,6 @@ def main():
         fred_data.reset_index(level=0, inplace=True)
         fred_data = fred_data.to_dict('records')
 
-        t1 = time()
-
         # If the table does not already exist, create it.
         metadata = MetaData(engine)
         fred_table = Table(table_name,
@@ -123,9 +138,6 @@ def main():
         # Insert the data
         conn = engine.connect()
         conn.execute(fred_table.insert(), fred_data)
-
-        t2 = time()
-        print('time:', t2 - t1)
 
         # Query the SQL table for the average unemployment rate.
         unemployment_query = """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
@@ -144,13 +156,17 @@ def main():
               (start_date, end_date))
         print(df)
 
-
-
     except KeyboardInterrupt:
         logger.info('Stopping fred_stats')
     except Exception as exc:
         logger.exception('Got exception %r', exc)
         return exc
+
+
+def main():
+    args = docopt(__doc__, version='fred_stats %s' % __version__)
+    fred_stats(args)
+
 
 if __name__ == '__main__':
     sys.exit(main())
