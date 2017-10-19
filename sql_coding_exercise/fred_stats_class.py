@@ -47,28 +47,6 @@ logger = logging.getLogger('fred_stats')
 __version__ = '0.0.1'
 
 
-def get_db_engine(db_name, user, password, host, port=5432):
-
-    db_connection = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
-        database=db_name,
-        user=user,
-        password=password,
-        host=host,
-        port=port
-    )
-
-    engine = create_engine(db_connection)
-    if not database_exists(engine.url):
-        try:
-            logger.info('Database created: %s', db_name)
-            create_database(engine.url)
-
-        except Exception as exc:
-            logger.exception('Could not create database. \nException: %r', exc)
-            return exc
-    return engine
-
-
 class FredStats:
     def __init__(self, api_key):
         self.fred = Fred(api_key=api_key)
@@ -81,29 +59,87 @@ class FredStats:
             frames.append(data_series)
 
         data = pd.concat(frames, axis=1)
+        data.index.name = 'timestamp'
         return data
 
 
 class DatabaseInterface:
-    def __init__(self, ):
+    def __init__(self,
+                 db_name,
+                 user,
+                 password,
+                 host='localhost',
+                 port=5432):
+
+        self.portgres_url = "postgresql://{user}:{password}@{host}:{port}/{database}".format(
+            database=db_name,
+            user=user,
+            password=password,
+            host=host,
+            port=port
+        )
+        self.db_name = db_name
+        self._engine = create_engine(self.portgres_url)
+        self._connection = self._engine.connect()
+        self.metadata = MetaData(self._engine)
+        self._check_db_exists()
+
+    def _check_db_exists(self):
+        if not database_exists(self._engine.url):
+            try:
+                create_database(self._engine.url)
+                logger.info('Database created: %s', self.db_name)
+
+            except Exception as exc:
+                logger.exception('Could not create database. \nException: %r', exc)
+                return exc
+
+    def _get_table(self, table_name, data):
+
+        table = Table(table_name,
+                      self.metadata,
+                      Column(data.index.name, DateTime),
+                      Column((col_name, Numeric) for col_name in data.columns.values))
 
         # If the table does not already exist, create it.
-        metadata = MetaData(engine)
-        fred_table = Table(table_name,
-                           metadata,
-                           Column('timestamp', DateTime),
-                           Column('gdp', Numeric),
-                           Column('umcsent', Numeric),
-                           Column('unrate', Numeric))
-        if not engine.dialect.has_table(engine, table_name):
-            metadata.create_all()
+        if not self._engine.dialect.has_table(self._engine, table_name):
+            try:
+                self.metadata.create_all()
+                logger.info('Table created: %s', self.db_name)
 
+            except Exception as exc:
+                logger.exception('Could not create table. \nException: %r', exc)
+                return exc
 
-        # Insert the data
-        conn = engine.connect()
-        for index, row in fred_data.iterrows():
-            ins = fred_table.insert().values(timestamp=index, gdp=row[0], umcsent=row[1], unrate=row[2])
-            conn.execute(ins)
+        return table
+
+    def insert_data(self, data, table_name):
+
+        table = self._get_table(table_name, data)
+
+        data.reset_index(level=0, inplace=True)
+        data = data.to_dict('records')
+
+        # Bulk insert the data
+        self._connection.execute(table.insert(), data)
+
+    def retrieve_avg_unemployment_rate(self, table_name, start_date, end_date, ):
+
+        # Query the SQL table for the average unemployment rate.
+        unemployment_query = """SELECT Extract(YEAR from timestamp)::INT as year, avg(unrate)
+                                FROM {t_name}
+                                WHERE timestamp >= :start_date and timestamp <= :end_date
+                                GROUP BY year
+                                ORDER BY year;""".format(t_name=table_name)
+
+        result = self._engine.execute(text(unemployment_query), start_date=start_date, end_date=end_date)
+
+        # Insert the data into a dataframe
+        df = pd.DataFrame(result.fetchall())
+        # Set the column names in the dataframe
+        df.columns = result.keys()
+        # Set the year column as the index
+        df.set_index('year', inplace=True)
 
 
 def main():
@@ -111,6 +147,14 @@ def main():
     args = docopt(__doc__, version='fred_stats %s' % __version__)
 
     api_key = args.get('--api_key') if args.get('--api_key') else '01af77900eb060649a7c504ee0705b4d'
+
+    db_name = args.get('--database') if args.get('--database') else 'fred_db'
+    user = args.get('--user')
+    password = args.get('--password')
+    host = args.get('--host') if args.get('--host') else 'localhost'
+    port = int(args.get('--port')) if args.get('--port') else 5432
+
+    table_name = args.get('--table') if args.get('--table') else 'fred_data'
     start_year = args.get('--start') if args.get('--start') else '1980'
     end_year = args.get('--end') if args.get('--end') else '2015'
 
@@ -124,13 +168,16 @@ def main():
         logger.info('starting fred_stats')
 
         fred_stats = FredStats(api_key=api_key)
-        data = fred_stats.retrieve_stats(series_names=series_names)
-        print(data)
+        fred_data_df = fred_stats.retrieve_stats(series_names=series_names)
 
+        dbi = DatabaseInterface(db_name, user, password, host, port)
+        dbi.insert_data(fred_data_df, table_name)
 
+        avg_unemployment = db
 
-
-
+        print('The average rate of unemployment in the USA for each year between %s and %s is as follows:' %
+              (start_date, end_date))
+        print(df)
 
     except KeyboardInterrupt:
         logger.info('Stopping fred_stats')
