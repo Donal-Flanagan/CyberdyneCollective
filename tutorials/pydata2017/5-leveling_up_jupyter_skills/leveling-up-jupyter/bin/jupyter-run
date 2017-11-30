@@ -1,0 +1,6 @@
+#!/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter/bin/python
+if __name__ == '__main__':
+    import sys
+    import jupyter_client.runapp
+
+    sys.exit(jupyter_client.runapp.main())

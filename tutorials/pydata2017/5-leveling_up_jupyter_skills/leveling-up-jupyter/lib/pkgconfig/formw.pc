@@ -1,0 +1,13 @@
+prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/ncursesw
+major_version=5
+version=5.9.20110404
+
+Name: formw
+Description: ncurses 5.9 add-on library
+Version: ${version}
+Requires: ncursesw tinfow
+Libs: -L${libdir} -lformw
+Cflags: -I${includedir}

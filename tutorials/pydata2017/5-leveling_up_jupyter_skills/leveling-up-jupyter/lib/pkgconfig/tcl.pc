@@ -1,0 +1,14 @@
+# tcl pkg-config source file
+
+prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+exec_prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+libdir=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter/lib
+includedir=${prefix}/include
+
+Name: Tool Command Language
+Description: Tcl is a powerful, easy-to-learn dynamic programming language, suitable for a wide range of uses.
+URL: http://www.tcl.tk/
+Version: 8.5.19
+Libs: -L${libdir} -ltcl8.5
+Libs.private: -ldl  -lieee -lm
+Cflags: -I${includedir}
