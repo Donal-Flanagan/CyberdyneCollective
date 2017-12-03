@@ -1,0 +1,36 @@
+{
+  "arch": "x86_64",
+  "auth": null,
+  "build": "0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "depends": [],
+  "files": [
+    "include/yaml.h",
+    "lib/libyaml-0.so.2",
+    "lib/libyaml-0.so.2.0.4",
+    "lib/libyaml.a",
+    "lib/libyaml.la",
+    "lib/libyaml.so",
+    "lib/pkgconfig/yaml-0.1.pc"
+  ],
+  "fn": "yaml-0.1.6-0.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/home/donal/anaconda3/pkgs/yaml-0.1.6-0",
+    "type": 1
+  },
+  "md5": "da97e6158b193b6960a9780c4837e97c",
+  "name": "yaml",
+  "noarch": null,
+  "platform": "linux",
+  "preferred_env": null,
+  "priority": 0,
+  "requires": [],
+  "schannel": "conda-forge",
+  "size": 307110,
+  "subdir": "linux-64",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/yaml-0.1.6-0.tar.bz2",
+  "version": "0.1.6",
+  "with_features_depends": {}
+}

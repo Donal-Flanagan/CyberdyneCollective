@@ -1,0 +1,11 @@
+prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.2.1
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Cflags: -I${includedir} 

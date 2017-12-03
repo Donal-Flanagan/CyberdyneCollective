@@ -1,0 +1,11 @@
+{
+ "argv": [
+  "/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter/bin/python",
+  "-m",
+  "ipykernel_launcher",
+  "-f",
+  "{connection_file}"
+ ],
+ "display_name": "Python 3",
+ "language": "python"
+}

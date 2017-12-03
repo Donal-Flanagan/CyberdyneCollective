@@ -1,6 +1,6 @@
 .*
 *~
-*.pyc
+*.py[cod]
 *.db
 *.orig
 *.pkl

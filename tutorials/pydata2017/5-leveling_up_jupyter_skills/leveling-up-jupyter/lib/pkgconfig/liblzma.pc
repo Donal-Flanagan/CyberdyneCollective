@@ -1,0 +1,19 @@
+#
+# Author: Lasse Collin
+#
+# This file has been put into the public domain.
+# You can do whatever you want with this file.
+#
+
+prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+exec_prefix=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter
+libdir=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter/lib
+includedir=/home/donal/cyberdyne/pydata2017/leveling_up_jupyter_skills/leveling-up-jupyter/include
+
+Name: liblzma
+Description: General purpose data compression library
+URL: http://tukaani.org/xz/
+Version: 5.2.2
+Cflags: -I${includedir}
+Libs: -L${libdir} -llzma
+Libs.private: -pthread -lrt  

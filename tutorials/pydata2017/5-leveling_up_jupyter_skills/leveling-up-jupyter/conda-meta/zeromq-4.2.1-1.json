@@ -1,0 +1,46 @@
+{
+  "arch": "x86_64",
+  "auth": null,
+  "build": "1",
+  "build_number": 1,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "depends": [
+    "libsodium"
+  ],
+  "files": [
+    "include/zmq.h",
+    "include/zmq_utils.h",
+    "lib/libzmq.a",
+    "lib/libzmq.so",
+    "lib/libzmq.so.4.2.1",
+    "lib/libzmq.so.5",
+    "lib/libzmq.so.5.1.1",
+    "lib/pkgconfig/libzmq.pc",
+    "share/cmake/ZeroMQ/ZeroMQConfig.cmake",
+    "share/cmake/ZeroMQ/ZeroMQConfigVersion.cmake",
+    "share/zmq/AUTHORS.txt",
+    "share/zmq/COPYING.LESSER.txt",
+    "share/zmq/COPYING.txt",
+    "share/zmq/NEWS.txt"
+  ],
+  "fn": "zeromq-4.2.1-1.tar.bz2",
+  "has_prefix": true,
+  "license": "LGPL 3",
+  "link": {
+    "source": "/home/donal/anaconda3/pkgs/zeromq-4.2.1-1",
+    "type": 1
+  },
+  "md5": "b3496cf09ffc099e3050449ee2a3af05",
+  "name": "zeromq",
+  "noarch": null,
+  "platform": "linux",
+  "preferred_env": null,
+  "priority": 0,
+  "requires": [],
+  "schannel": "conda-forge",
+  "size": 662774,
+  "subdir": "linux-64",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/zeromq-4.2.1-1.tar.bz2",
+  "version": "4.2.1",
+  "with_features_depends": {}
+}
