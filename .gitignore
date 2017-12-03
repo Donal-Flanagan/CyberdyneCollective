@@ -3,5 +3,9 @@
 *.py[cod]
 *.db
 *.orig
+<<<<<<< HEAD
 .idea/*
+=======
+*.pkl
+>>>>>>> markus_numerai
 !/.gitignore
