@@ -3,5 +3,5 @@
 *.py[cod]
 *.db
 *.orig
-.idea/*
+*.pkl
 !/.gitignore

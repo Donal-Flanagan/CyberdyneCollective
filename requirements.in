@@ -1,0 +1,19 @@
+
+# tools
+pip-tools
+nbstripout
+
+
+
+# science
+jupyter
+numpy
+scipy
+pandas
+geopandas
+scikit-learn
+
+# plotting
+matplotlib
+seaborn
+
