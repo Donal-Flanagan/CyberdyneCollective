@@ -1,0 +1,6 @@
+pandas
+docopt
+requests
+fredapi
+sqlalchemy
+sqlalchemy_utils
